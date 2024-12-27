@@ -56,12 +56,15 @@ export default function RootLayout({
                 title="nextui.org homepage"
               >
                 <span className="text-default-600">Powered by</span>
-                <p className={clsx(
-                  linkStyles({ color: "warning" }),
-                  "relative inline-block transition-all duration-700 font-semibold",
-                  "hover:text-transparent hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text"
-                )}
-                >AG</p>
+                <p
+                  className={clsx(
+                    linkStyles({ color: "warning" }),
+                    "relative inline-block transition-all duration-700 font-semibold",
+                    "hover:text-transparent hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text",
+                  )}
+                >
+                  AG
+                </p>
               </Link>
             </footer>
           </div>

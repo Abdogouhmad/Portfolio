@@ -43,6 +43,6 @@ export const siteConfig = {
     github: "https://github.com/Abdogouhmad",
     twitter: "https://x.com/a3bdor7man",
     discord: "https://discordapp.com/users/461940570106101773",
-    blusky: "https://bsky.app/profile/3bdo23.bsky.social"
+    blusky: "https://bsky.app/profile/3bdo23.bsky.social",
   },
 };

@@ -1,42 +1,38 @@
-"use client"
+"use client";
 // import { Link } from "@nextui-org/link";
 // import { Snippet } from "@nextui-org/snippet";
 // import { Code } from "@nextui-org/code";
 // import { button as buttonStyles } from "@nextui-org/theme";
 
-import { title, subtitle } from "@/components/primitives";
+import { motion } from "framer-motion"; // For animations
+
+import { title } from "@/components/primitives";
 import { FlipWords } from "@/components/ui/flip-words";
-import { motion } from 'framer-motion'; // For animations
 
 export default function Home() {
-  const occupation = [
-    "Linguistics",
-    "Web Developping",
-    "Rust lang"
-  ];
+  const occupation = ["Linguistics", "Web Developping", "Rust lang"];
 
   return (
     <section className="flex flex-col justify-center items-center px-4 gap-8 py-16 md:py-20">
       {/* Name Section */}
       <motion.div
+        animate={{ opacity: 1, y: 0 }}
         className="text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 text-center"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Hi there, I'm{' '}
-        <span className={title({ color: 'yellow' })}>Abderrahman Gouhmad</span>
+        Hi there, I'm{" "}
+        <span className={title({ color: "yellow" })}>Abderrahman Gouhmad</span>
       </motion.div>
-
 
       {/* Occupation Section */}
       <motion.div
+        animate={{ opacity: 1, y: 0 }}
         className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-400 text-center"
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        Passionate about{' '}
+        Passionate about{" "}
         <span className="font-bold text-yellow-600 dark:text-yellow-400">
           <FlipWords words={occupation} />
         </span>
