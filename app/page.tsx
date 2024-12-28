@@ -4,39 +4,30 @@
 // import { Code } from "@nextui-org/code";
 // import { button as buttonStyles } from "@nextui-org/theme";
 
-import { motion } from "framer-motion"; // For animations
-
+// import { motion } from "framer-motion"; // For animations
+import { siteConfig } from "@/config/site";
 import { title } from "@/components/primitives";
 import { FlipWords } from "@/components/ui/flip-words";
 
 export default function Home() {
-  const occupation = ["Linguistics", "Web Developping", "Rust lang"];
-
   return (
-    <section className="flex flex-col justify-center items-center px-4 gap-8 py-16 md:py-20">
+    <section className="flex flex-col justify-end items-end gap-3 py-16 md:py-20 md:px-4 md:gap-8 md:justify-start md:items-start">
       {/* Name Section */}
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        className="text-5xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 text-center"
-        initial={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.8 }}
+      <div
+        className="text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 text-start "
       >
-        Hi there, I'm{" "}
-        <span className={title({ color: "yellow" })}>Abderrahman Gouhmad</span>
-      </motion.div>
+        Hi, I am {""}
+        <span className={title({ color: "yellow", size: "lg" })}>{siteConfig.my_info.name}</span>
+      </div>
 
       {/* Occupation Section */}
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-400 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.8, delay: 1 }}
+      <div
+        className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-400 "
       >
-        Passionate about{" "}
-        <span className="font-bold text-yellow-600 dark:text-yellow-400">
-          <FlipWords words={occupation} />
+        <span className="font-bold text-neutral-700 dark:text-neutral-200 "> A {" "}
+          <FlipWords words={siteConfig.my_info.occupation} />
         </span>
-      </motion.div>
+      </div>
     </section>
   );
 }

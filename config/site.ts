@@ -9,8 +9,8 @@ export const siteConfig = {
       href: "#about",
     },
     {
-      label: "Experince",
-      href: "#experince",
+      label: "Experience",
+      href: "#experience",
     },
     {
       label: "Projects",
@@ -27,8 +27,8 @@ export const siteConfig = {
       href: "#about",
     },
     {
-      label: "Experince",
-      href: "#experince",
+      label: "Experience",
+      href: "#experience",
     },
     {
       label: "Projects",
@@ -45,4 +45,13 @@ export const siteConfig = {
     discord: "https://discordapp.com/users/461940570106101773",
     blusky: "https://bsky.app/profile/3bdo23.bsky.social",
   },
+
+  my_info: {
+    name: "Abderrahman Gouhmad",
+    hubbies: [
+      "Reading", "Workout", "Biking", "Writing" 
+    ],
+    occupation: ["Linguistic",  "Web developer"],
+    enthusiasm: ["Bikes", "Rust lang"],
+  }
 };
