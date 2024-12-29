@@ -45,7 +45,13 @@ export const siteConfig = {
     discord: "https://discordapp.com/users/461940570106101773",
     blusky: "https://bsky.app/profile/3bdo23.bsky.social",
   },
-
+  hero: {
+    big_one: "Put your business in",
+    big_two: "hands and grow for a brighter tomorrow.",
+    fliped: ["trusted", "skilled"],
+    about_me: "Hey there! Call me AG. I enjoy creating kickass websites and web/mobile apps, that matches your desire."
+  }
+  ,
   my_info: {
     name: "Abderrahman Gouhmad",
     hubbies: [

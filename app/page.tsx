@@ -6,31 +6,68 @@
 
 // import { motion } from "framer-motion"; // For animations
 import { siteConfig } from "@/config/site";
-import { title } from "@/components/primitives";
 import { FlipWords } from "@/components/ui/flip-words";
+import { Card, CardFooter } from "@nextui-org/card";
+import Image from 'next/image'
+import me from "@/public/abdo.jpg"
 
 export default function Home() {
   return (
-    <section className="flex flex-col justify-end items-end gap-3 py-16 md:py-20 md:px-4 md:gap-8 md:justify-start md:items-start">
-      {/* Name Section */}
-      <div
-        className="text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200 text-start "
-      >
-        Hi, I am {""}
-        <span className={title({ color: "yellow", size: "lg" })}>{siteConfig.my_info.name}</span>
-      </div>
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24">
+      {/* text of the hero */}
+      <div className="grid grid-cols-1">
+        {/*Marketed text*/}
+        <h1 className="text-4xl md:text-6xl text-neutral-700 dark:text-neutral-200 font-extrabold">
+          {siteConfig.hero.big_one}
+          <span>
+            <FlipWords
+              words={siteConfig.hero.fliped} className="relative inline-block text-transparent dark:text-transparent bg-gradient-to-r from-[#FF705B] to-[#FFB457] bg-clip-text" />
+          </span>
+          {siteConfig.hero.big_two}
+        </h1>
 
-      {/* Occupation Section */}
-      <div
-        className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-400 "
-      >
-        <span className="font-bold text-neutral-700 dark:text-neutral-200 "> A {" "}
-          <FlipWords words={siteConfig.my_info.occupation} />
-        </span>
+        {/*short of me*/}
+        <h2 className="text-lg text-neutral-700 dark:text-neutral-200 font-medium">
+          {siteConfig.hero.about_me}
+        </h2>
       </div>
-    </section>
+      {/* Card and Image */}
+      <Card className="border-none max-w-fit max-h-fit relative" radius="sm">
+        {/* Image Insert */}
+        <Image
+          alt="me"
+          src={me}
+          quality={100}
+          priority={true}
+          placeholder="blur"
+          className="object-cover rounded-sm"
+          width={400}
+          height={400}
+        />
+        {/* Footer */}
+        <CardFooter className="absolute bottom-2 left-2 right-2 flex flex-col items-start bg-gradient-to-t from-[#FF705B]/90 to-[#FFB457]/70 rounded-sm px-4 py-3 shadow-xl">
+          <p className="text-sm font-semibold text-neutral-700 italic">
+            "Many ideas grow better when transplanted into another mind than the one where they sprang up."
+          </p>
+          <span className="text-xs font-medium text-neutral-600 mt-1">
+            – Oliver Wendell Holmes
+          </span>
+        </CardFooter>
+
+      </Card>
+
+    </section >
+
   );
 }
+// text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200// py-16 md:py-20 md:px-4// {/* Occupation Section */}
+// <div
+//   className="text-2xl md:text-3xl font-medium text-neutral-700 dark:text-neutral-400 "
+// >
+//   <span className="font-bold text-neutral-700 dark:text-neutral-200 "> A {" "}
+//     <FlipWords words={siteConfig.my_info.occupation} />
+//   </span>
+// </div>
 // <div className="mt-8">
 //   <Snippet hideCopyButton hideSymbol variant="bordered">
 //     <span>
