@@ -22,7 +22,7 @@ export default function Home() {
           {siteConfig.hero.big_one}
           <span>
             <FlipWords
-              className="bg-gradient-to-r from-[#FF705B] to-[#FFB457]  inline-block text-transparent bg-clip-text"
+              className="bg-gradient-to-r from-[#FF705B] to-[#FFB457] bg-clip-text text-transparent dark:text-transparent"
               words={siteConfig.hero.fliped}
             />
           </span>
