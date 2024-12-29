@@ -5,11 +5,12 @@
 // import { button as buttonStyles } from "@nextui-org/theme";
 
 // import { motion } from "framer-motion"; // For animations
+import { Card, CardFooter } from "@nextui-org/card";
+import Image from "next/image";
+
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
-import { Card, CardFooter } from "@nextui-org/card";
-import Image from 'next/image'
-import me from "@/public/abdo.jpg"
+import me from "@/public/abdo.jpg";
 
 export default function Home() {
   return (
@@ -21,13 +22,15 @@ export default function Home() {
           {siteConfig.hero.big_one}
           <span>
             <FlipWords
-              words={siteConfig.hero.fliped} className="relative inline-block text-transparent dark:text-transparent bg-gradient-to-r from-[#FF705B] to-[#FFB457] bg-clip-text" />
+              className="bg-gradient-to-r from-[#FF705B] to-[#FFB457]  inline-block text-transparent bg-clip-text"
+              words={siteConfig.hero.fliped}
+            />
           </span>
           {siteConfig.hero.big_two}
         </h1>
 
         {/*short of me*/}
-        <h2 className="text-lg text-neutral-700 dark:text-neutral-200 font-medium">
+        <h2 className="text-lg text-neutral-700 dark:text-neutral-200 font-medium text-justify">
           {siteConfig.hero.about_me}
         </h2>
       </div>
@@ -36,28 +39,26 @@ export default function Home() {
         {/* Image Insert */}
         <Image
           alt="me"
-          src={me}
-          quality={100}
-          priority={true}
-          placeholder="blur"
           className="object-cover rounded-sm"
-          width={400}
           height={400}
+          placeholder="blur"
+          priority={true}
+          quality={100}
+          src={me}
+          width={400}
         />
         {/* Footer */}
         <CardFooter className="absolute bottom-2 left-2 right-2 flex flex-col items-start bg-gradient-to-t from-[#FF705B]/90 to-[#FFB457]/70 rounded-sm px-4 py-3 shadow-xl">
           <p className="text-sm font-semibold text-neutral-700 italic">
-            "Many ideas grow better when transplanted into another mind than the one where they sprang up."
+            "Many ideas grow better when transplanted into another mind than the
+            one where they sprang up."
           </p>
           <span className="text-xs font-medium text-neutral-600 mt-1">
             – Oliver Wendell Holmes
           </span>
         </CardFooter>
-
       </Card>
-
-    </section >
-
+    </section>
   );
 }
 // text-4xl md:text-6xl font-extrabold text-neutral-800 dark:text-neutral-200// py-16 md:py-20 md:px-4// {/* Occupation Section */}

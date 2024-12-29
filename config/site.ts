@@ -49,15 +49,13 @@ export const siteConfig = {
     big_one: "Put your business in",
     big_two: "hands and grow for a brighter tomorrow.",
     fliped: ["trusted", "skilled"],
-    about_me: "Hey there! Call me AG. I enjoy creating kickass websites and web/mobile apps, that matches your desire."
-  }
-  ,
+    about_me:
+      "Hey there! Call me AG. I enjoy creating kickass websites and web/mobile apps, that matches your desire.",
+  },
   my_info: {
     name: "Abderrahman Gouhmad",
-    hubbies: [
-      "Reading", "Workout", "Biking", "Writing" 
-    ],
-    occupation: ["Linguistic",  "Web developer"],
+    hubbies: ["Reading", "Workout", "Biking", "Writing"],
+    occupation: ["Linguistic", "Web developer"],
     enthusiasm: ["Bikes", "Rust lang"],
-  }
+  },
 };
