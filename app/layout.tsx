@@ -43,12 +43,12 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-10 px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl flex-grow px-6 pt-10">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
+            <footer className="flex w-full items-center justify-center py-3">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
@@ -59,8 +59,8 @@ export default function RootLayout({
                 <p
                   className={clsx(
                     linkStyles({ color: "warning", size: "lg" }),
-                    "relative inline-block transition-all duration-700 font-semibold",
-                    "hover:text-transparent hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text",
+                    "relative inline-block font-semibold transition-all duration-700",
+                    "hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text hover:text-transparent",
                   )}
                 >
                   AG

@@ -58,4 +58,18 @@ export const siteConfig = {
     occupation: ["Linguistic", "Web developer"],
     enthusiasm: ["Bikes", "Rust lang"],
   },
+  bt_hero: [
+    {
+      id: 1,
+      title: "View Projects",
+      link: "#projects",
+      external: false,
+    },
+    {
+      id: 2,
+      title: "View Resume",
+      link: "https://drive.google.com/drive/folders/1L5TMQ9TtBms1DSXryhB0ESQvVXZL5jrV",
+      external: true,
+    },
+  ],
 };

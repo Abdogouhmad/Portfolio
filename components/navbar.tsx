@@ -24,19 +24,19 @@ export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+        <NavbarBrand as="li" className="max-w-fit gap-3">
+          <NextLink className="flex items-center justify-start gap-1" href="/">
             <h1 className={title({ color: "yellow", size: "sm" })}> AG </h1>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden md:flex gap-4 justify-start ml-2">
+        <ul className="ml-2 hidden justify-start gap-4 md:flex">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "relative inline-block transition-all duration-700 font-semibold",
-                  "hover:text-transparent hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text",
+                  "relative inline-block font-semibold transition-all duration-700",
+                  "hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text hover:text-transparent",
                 )}
                 href={item.href}
               >
@@ -48,16 +48,16 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
+        className="hidden basis-1/5 sm:flex sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex gap-2">
+        <NavbarItem className="hidden gap-2 sm:flex">
           <SocialMedia />
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden gap-3" justify="end">
+      <NavbarContent className="gap-3 sm:hidden" justify="end">
         <SocialMedia />
         <ThemeSwitch />
         <NavbarMenuToggle />
@@ -82,16 +82,16 @@ const SocialMedia = () => {
   return (
     <>
       <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-        <FaSquareXTwitter className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
+        <FaSquareXTwitter className="h-[20px] w-[20px] text-default-500 lg:h-[24px] lg:w-[24px]" />
       </Link>
       <Link isExternal aria-label="BlueSky" href={siteConfig.links.blusky}>
-        <FaBluesky className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
+        <FaBluesky className="h-[20px] w-[20px] text-default-500 lg:h-[24px] lg:w-[24px]" />
       </Link>
       <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-        <DiscordIcon className="text-default-500 " />
+        <DiscordIcon className="text-default-500" />
       </Link>
       <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-        <GithubIcon className="text-default-500 " />
+        <GithubIcon className="text-default-500" />
       </Link>
     </>
   );
