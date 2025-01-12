@@ -72,4 +72,27 @@ export const siteConfig = {
       external: true,
     },
   ],
+
+  services: {
+    title1: "You‘re Safe And in Good Hands",
+    title2:
+      "Honed skills, unwavering dedication, and a genuine focus on your needs come together to provide a truly exceptional experience.",
+    feat: [
+      {
+        title: "Continuous support",
+        sub: "I specialize in advancing and maintaining your web-based software to keep it running smoothly and competitively. Leveraging proven DevOps processes, I deliver urgent updates within hours and roll out planned, feature-rich modules on a bi-weekly schedule, ensuring your product always meets market demands.",
+        icon: "GrVmMaintenance", // Placeholder for an icon representing DevOps
+      },
+      {
+        title: "Robust Backend",
+        sub: "I implement your web app's business logic with precision, utilizing proven frameworks to ensure fast, high-quality development. My approach includes building well-structured APIs that seamlessly integrate your application with corporate systems and third-party services, delivering reliable and scalable solutions.",
+        icon: "MdOutlineHttp", // Placeholder for an icon representing Backend
+      },
+      {
+        title: "Front-End Development",
+        sub: "I deeply analyze your target audience to understand their needs and translate these insights into intuitive UI designs. Collaborating with project stakeholders, I ensure the look and feel align with your goals, bringing it to life using cutting-edge front-end technologies for a seamless user experience.",
+        icon: "MdOutlineDesignServices", // Placeholder for an icon representing Frontend
+      },
+    ],
+  },
 };
