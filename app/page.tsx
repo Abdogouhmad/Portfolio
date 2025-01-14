@@ -1,8 +1,4 @@
 "use client";
-// import { Link } from "@nextui-org/link";
-// import { Snippet } from "@nextui-org/snippet";
-// import { Code } from "@nextui-org/code";
-// import { motion } from "framer-motion"; // For animations
 import { Card, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
 
@@ -10,7 +6,8 @@ import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
 import me from "@/public/abdo.jpg";
 import Sxbtn from "@/components/ui/sxbt";
-import Feature from "@/components/features/features.component";
+import ServicesProvided from "@/components/features/features.component";
+import Techs from "@/components/techs/techs.component";
 
 export default function Home() {
   return (
@@ -72,8 +69,15 @@ export default function Home() {
       {/* Add a gap between hero and features */}
       <div className="h-40" />
       {/* feat provided */}
-      <article className="items-center justify-center">
-        <Feature />
+      <article className="items-center justify-center space-y-10">
+        <ServicesProvided />
+      </article>
+      <div className="h-32" />
+      <hr className="absolute left-0 right-0 w-screen border-0 border-t-[1px] border-neutral-700 dark:border-stone-700" />
+      <div className="h-32" />
+      {/* Techs I know :) */}
+      <article>
+        <Techs />
       </article>
     </section>
   );

@@ -1,3 +1,5 @@
+import { subtitle } from "@/components/primitives";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -95,4 +97,9 @@ export const siteConfig = {
       },
     ],
   },
+
+  techs: {
+    title: "Techs & Languages that empowered me",
+    subtitle: "Not all techs and languages can empower your web app"
+  }
 };

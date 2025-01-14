@@ -2,14 +2,13 @@ import { siteConfig } from "@/config/site";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { MdOutlineHttp } from "react-icons/md";
-import { IconType } from "react-icons";
 
-export default function Feature() {
+export default function ServicesProvided() {
   // Map icon names to their respective components
   const icons = [
-    GrVmMaintenance, // Icon for the first item
-    MdOutlineHttp,   // Icon for the second item
-    MdOutlineDesignServices, // Icon for the third item
+    GrVmMaintenance,
+    MdOutlineHttp,
+    MdOutlineDesignServices,
   ];
   return (
     <>
@@ -37,13 +36,13 @@ export default function Feature() {
               {/* Render icon */}
               {IconComponent && (
                 <div className="flex  justify-center">
-                  <IconComponent className="size-16 bg-gradient-to-r from-[#FF705B] to-[#FFB457]  rounded-full p-3" />
+                  <IconComponent className="size-16 bg-gradient-to-r from-[#FF705B]/80 to-[#FFB457]/80 rounded-full p-3 text-white" />
                 </div>
               )}
               <h2 className="text-2xl font-semibold text-center">
                 {item.title}
               </h2>
-              <p className="text-lg font-light text-justify tracking-tighter">
+              <p className="text-lg font-normal text-center">
                 {item.sub}
               </p>
             </div>
