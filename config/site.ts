@@ -98,9 +98,9 @@ export const siteConfig = {
 
   techs: {
     title: "Techs & Languages that empowered me",
-    subtitle: "A good developer cares about 4 things: algorithm, language,framework, and devOps.",
+    subtitle: "Good choices bring great innovations to life",
     lang: "Languages",
     frmw: "Framworks",
-    dvops: "DevOps"
-  }
+    dvops: "DevOps",
+  },
 };

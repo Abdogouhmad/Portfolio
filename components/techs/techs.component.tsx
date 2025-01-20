@@ -24,26 +24,26 @@ import { useEffect, useState } from "react";
 
 const langs = [
   { name: "Rust", icon: RustOriginal, id: "rust" },
-  { name: "Python", icon: PythonOriginal },
-  { name: "TypeScript", icon: TypescriptOriginal },
-  { name: "JavaScript", icon: JavascriptOriginal },
-  { name: "Dart", icon: DartOriginal },
-  { name: "Bash", icon: BashOriginal },
+  { name: "Python", icon: PythonOriginal, id: "python" },
+  { name: "TypeScript", icon: TypescriptOriginal, id: "typescript" },
+  { name: "JavaScript", icon: JavascriptOriginal, id: "javascript" },
+  { name: "Dart", icon: DartOriginal, id: "dart" },
+  { name: "Bash", icon: BashOriginal, id: "bash" },
 ];
 
 const frameworks = [
-  { name: "Tauri", icon: TauriOriginal },
-  { name: "React", icon: ReactOriginal },
-  { name: "Next.js", icon: NextjsOriginal },
-  { name: "Svelte", icon: SvelteOriginal },
+  { name: "Tauri", icon: TauriOriginal, id: "tauri" },
+  { name: "React", icon: ReactOriginal, id: "react" },
+  { name: "Svelte", icon: SvelteOriginal, id: "svelte" },
+  { name: "Next.js", icon: NextjsOriginal, id: "nextjs" },
   { name: "Express", icon: ExpressOriginalWordmark, id: "express" },
-  { name: "TailwindCSS", icon: TailwindcssOriginal },
+  { name: "TailwindCSS", icon: TailwindcssOriginal, id: "tailwindcss" },
 ];
 
 const devops = [
-  { name: "AWS", icon: AmazonwebservicesOriginalWordmark },
-  { name: "Docker", icon: DockerOriginalWordmark },
-  { name: "GitHub", icon: GithubOriginal },
+  { name: "GitHub", icon: GithubOriginal, id: "github" },
+  { name: "AWS", icon: AmazonwebservicesOriginalWordmark, id: "aws" },
+  { name: "Docker", icon: DockerOriginalWordmark, id: "docker" },
 ];
 
 export default function Techs() {
@@ -62,36 +62,33 @@ export default function Techs() {
   return (
     <>
       {/* titles */}
-      <div className="flex flex-col gap-10 text-neutral-700 dark:text-neutral-200 items-center justify-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-center">
+      <div className="flex flex-col items-center justify-center gap-10 text-neutral-700 dark:text-neutral-200">
+        <h1 className="text-center text-4xl font-bold md:text-6xl">
           {siteConfig.techs.title}
         </h1>
-        <p className="text-lg md:text-xl font-light text-center tracking-wide">
+        <p className="text-center text-lg font-medium tracking-wide md:text-xl">
           {siteConfig.techs.subtitle}
         </p>
       </div>
 
       {/* langs */}
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl text-neutral-700 dark:text-neutral-200 font-semibold text-center mb-8">
+        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
           {siteConfig.techs.lang}
         </h2>
-        <div className="grid grid-cols-3 gap-5 items-center justify-center">
+        <div className="grid grid-cols-3 items-center justify-center gap-5">
           {langs.map((lang) => {
             const Icon = lang.icon;
             return (
               <div
-                key={lang.name}
+                key={lang.id}
                 className="flex flex-col items-center justify-center gap-2"
               >
                 <Icon
                   size={80}
-                  className={`
-    ${lang.id === "rust" && theme === "dark" ? "fill-[#f74c00]" : ""}
-  `}
+                  className={` ${lang.id === "rust" && theme === "dark" ? "fill-[#f74c00]" : ""} `}
                 />
-
-                <p className="text-sm md:text-base text-neutral-700 dark:text-neutral-200 font-medium">
+                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
                   {lang.name}
                 </p>
               </div>
@@ -102,25 +99,22 @@ export default function Techs() {
 
       {/* frameworks */}
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl text-neutral-700 dark:text-neutral-200 font-semibold text-center mb-8">
+        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
           {siteConfig.techs.frmw}
         </h2>
-        <div className="grid grid-cols-3 gap-5 items-center justify-center">
+        <div className="grid grid-cols-3 items-center justify-center gap-5">
           {frameworks.map((framework) => {
             const Icon = framework.icon;
             return (
               <div
-                key={framework.name}
+                key={framework.id}
                 className="flex flex-col items-center justify-center gap-2"
               >
                 <Icon
                   size={80}
-                  className={`
-    ${framework.id === "express" && theme === "dark" ? "fill-neutral-200" : ""}
-  `}
+                  className={` ${framework.id === "express" && theme === "dark" ? "fill-neutral-200" : ""} `}
                 />
-
-                <p className="text-sm md:text-base text-neutral-700 dark:text-neutral-200 font-medium">
+                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
                   {framework.name}
                 </p>
               </div>
@@ -131,19 +125,22 @@ export default function Techs() {
 
       {/* devops */}
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl text-neutral-700 dark:text-neutral-200 font-semibold text-center mb-8">
+        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
           {siteConfig.techs.dvops}
         </h2>
-        <div className="grid grid-cols-3 gap-5 items-center justify-center">
+        <div className="grid grid-cols-3 items-center justify-center gap-5">
           {devops.map((tool) => {
             const Icon = tool.icon;
             return (
               <div
-                key={tool.name}
+                key={tool.id}
                 className="flex flex-col items-center justify-center gap-2"
               >
-                <Icon size={80} />
-                <p className="text-sm text-neutral-700 dark:text-neutral-200 md:text-base font-medium">
+                <Icon
+                  size={80}
+                  className={` ${tool.id === "aws" && theme === "dark" ? "fill-white" : ""} `}
+                />
+                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
                   {tool.name}
                 </p>
               </div>
