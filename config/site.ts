@@ -97,7 +97,7 @@ export const siteConfig = {
   },
 
   techs: {
-    title: "Techs & Languages that empowered me",
+    title: "A Good Stack to empowere your Businesses",
     subtitle: "Good choices bring great innovations to life",
     lang: "Languages",
     frmw: "Framworks",
