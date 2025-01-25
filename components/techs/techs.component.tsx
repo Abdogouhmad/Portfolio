@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   SiReact,
   SiSvelte,
@@ -16,37 +16,91 @@ import {
   SiRust,
   SiDart,
   SiGnubash,
-  SiPrisma
-} from "react-icons/si"
+  SiPrisma,
+} from "react-icons/si";
 import { FaAws } from "react-icons/fa";
-import { Card, CardBody } from "@nextui-org/card"
+import { Card, CardBody } from "@nextui-org/card";
 import { siteConfig } from "@/config/site";
 
 const techStack = [
-  { name: "Rust", icon: SiRust, color: "text-orange-600", level: "Intermediate" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", level: "Advanced" },
+  {
+    name: "Rust",
+    icon: SiRust,
+    color: "text-orange-600",
+    level: "Intermediate",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "text-blue-600",
+    level: "Advanced",
+  },
   { name: "Dart", icon: SiDart, color: "text-cyan-500", level: "Intermediate" },
-  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400", level: "Advanced" },
-  { name: "Node.js", icon: SiNodedotjs, color: "text-green-500", level: "Advanced" },
+  {
+    name: "JavaScript",
+    icon: SiJavascript,
+    color: "text-yellow-400",
+    level: "Advanced",
+  },
+  {
+    name: "Node.js",
+    icon: SiNodedotjs,
+    color: "text-green-500",
+    level: "Advanced",
+  },
   { name: "Python", icon: SiPython, color: "text-blue-500", level: "Advanced" },
-  { name: "Bash", icon: SiGnubash, color: "text-neutral-500", level: "Advanced" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400", level: "Advanced" },
+  {
+    name: "Bash",
+    icon: SiGnubash,
+    color: "text-neutral-500",
+    level: "Advanced",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    color: "text-cyan-400",
+    level: "Advanced",
+  },
   { name: "React", icon: SiReact, color: "text-blue-500", level: "Advanced" },
-  { name: "Svelt", icon: SiSvelte, color: "text-orange-600", level: "Advanced" },
-  { name: "Next.js", icon: SiNextdotjs, color: "text-black dark:text-white", level: "Advanced" },
+  {
+    name: "Svelt",
+    icon: SiSvelte,
+    color: "text-orange-600",
+    level: "Advanced",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "text-black dark:text-white",
+    level: "Advanced",
+  },
   { name: "Git", icon: SiGit, color: "text-red-500", level: "Advanced" },
-  { name: "AWS", icon: FaAws, color: "text-black dark:text-white", level: "Intermediate" },
-  { name: "Docker", icon: SiDocker, color: "text-blue-600", level: "Intermediate" },
-  { name: "Prisma", icon: SiPrisma, color: "text-neutral-500", level: "Advanced" },
-
-]
+  {
+    name: "AWS",
+    icon: FaAws,
+    color: "text-black dark:text-white",
+    level: "Intermediate",
+  },
+  {
+    name: "Docker",
+    icon: SiDocker,
+    color: "text-blue-600",
+    level: "Intermediate",
+  },
+  {
+    name: "Prisma",
+    icon: SiPrisma,
+    color: "text-neutral-500",
+    level: "Advanced",
+  },
+];
 
 export default function TechSection() {
-  const [hoveredTech, setHoveredTech] = useState<string | null>(null)
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   return (
     <div className="container mx-auto px-4">
-      <div className="flex flex-col items-center justify-center gap-6 mb-10 text-neutral-700 dark:text-neutral-200">
+      <div className="mb-10 flex flex-col items-center justify-center gap-6 text-neutral-700 dark:text-neutral-200">
         <h1 className="text-center text-4xl font-bold md:text-6xl">
           {siteConfig.techs.title}
         </h1>
@@ -54,24 +108,26 @@ export default function TechSection() {
           {siteConfig.techs.subtitle}
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
         {techStack.map((tech) => (
           <Card
             key={tech.name}
-            className="group bg-transparent border-1 border-orange-600 relative overflow-hidden transition-all duration-300 ease-in-out"
+            className="group relative overflow-hidden border-1 border-orange-600 bg-transparent transition-all duration-300 ease-in-out"
             onMouseEnter={() => setHoveredTech(tech.name)}
             onMouseLeave={() => setHoveredTech(null)}
           >
-            <CardBody className="flex flex-col items-center justify-center py-10 px-2">
+            <CardBody className="flex flex-col items-center justify-center px-2 py-10">
               <motion.div
-                className={`text-4xl mb-2 ${tech.color}`}
+                className={`mb-2 text-4xl ${tech.color}`}
                 initial={{ scale: 1 }}
                 animate={{ scale: hoveredTech === tech.name ? 1.2 : 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
                 <tech.icon />
               </motion.div>
-              <p className="text-sm font-medium text-neutral-600 dark:text-neutral-300">{tech.name}</p>
+              <p className="text-sm font-medium text-neutral-600 dark:text-neutral-300">
+                {tech.name}
+              </p>
               {hoveredTech === tech.name && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -79,7 +135,7 @@ export default function TechSection() {
                   transition={{ duration: 0.3 }}
                   className="absolute bottom-2 left-0 right-0 flex justify-center"
                 >
-                  <p className="text-sm font-semibold text-neutural-700 dark:text-neutural-100">
+                  <p className="text-neutural-700 dark:text-neutural-100 text-sm font-semibold">
                     {tech.level}
                   </p>
                 </motion.div>
@@ -89,6 +145,5 @@ export default function TechSection() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
