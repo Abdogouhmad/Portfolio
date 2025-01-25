@@ -7,7 +7,7 @@ import { FlipWords } from "@/components/ui/flip-words";
 import me from "@/public/abdo.jpg";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
-import Techs from "@/components/techs/techs.component";
+import TechSection from "@/components/techs/techs.component";
 
 export default function Home() {
   return (
@@ -77,7 +77,7 @@ export default function Home() {
       <div className="h-32" />
       {/* Techs I know :) */}
       <article>
-        <Techs />
+        <TechSection />
       </article>
     </section>
   );

@@ -1,68 +1,52 @@
-"use client";
+"use client"
 
+import { useState } from "react"
+import { motion } from "framer-motion"
+import {
+  SiReact,
+  SiSvelte,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPython,
+  SiGit,
+  SiDocker,
+  SiRust,
+  SiDart,
+  SiGnubash,
+  SiPrisma
+} from "react-icons/si"
+import { FaAws } from "react-icons/fa";
+import { Card, CardBody } from "@nextui-org/card"
 import { siteConfig } from "@/config/site";
-// langs
-import { RustOriginal } from "devicons-react";
-import { PythonOriginal } from "devicons-react";
-import { TypescriptOriginal } from "devicons-react";
-import { JavascriptOriginal } from "devicons-react";
-import { DartOriginal } from "devicons-react";
-import { BashOriginal } from "devicons-react";
-// frameworks
-import { TauriOriginal } from "devicons-react";
-import { ReactOriginal } from "devicons-react";
-import { NextjsOriginal } from "devicons-react";
-import { SvelteOriginal } from "devicons-react";
-import { ExpressOriginalWordmark } from "devicons-react";
-import { TailwindcssOriginal } from "devicons-react";
-// devops
-import { AmazonwebservicesOriginalWordmark } from "devicons-react";
-import { DockerOriginalWordmark } from "devicons-react";
-import { GithubOriginal } from "devicons-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
-const langs = [
-  { name: "Rust", icon: RustOriginal, id: "rust" },
-  { name: "Python", icon: PythonOriginal, id: "python" },
-  { name: "TypeScript", icon: TypescriptOriginal, id: "typescript" },
-  { name: "JavaScript", icon: JavascriptOriginal, id: "javascript" },
-  { name: "Dart", icon: DartOriginal, id: "dart" },
-  { name: "Bash", icon: BashOriginal, id: "bash" },
-];
+const techStack = [
+  { name: "Rust", icon: SiRust, color: "text-orange-600", level: "Intermediate" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600", level: "Advanced" },
+  { name: "Dart", icon: SiDart, color: "text-cyan-500", level: "Intermediate" },
+  { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400", level: "Advanced" },
+  { name: "Node.js", icon: SiNodedotjs, color: "text-green-500", level: "Advanced" },
+  { name: "Python", icon: SiPython, color: "text-blue-500", level: "Advanced" },
+  { name: "Bash", icon: SiGnubash, color: "text-neutral-500", level: "Advanced" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-400", level: "Advanced" },
+  { name: "React", icon: SiReact, color: "text-blue-500", level: "Advanced" },
+  { name: "Svelt", icon: SiSvelte, color: "text-orange-600", level: "Advanced" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-black dark:text-white", level: "Advanced" },
+  { name: "Git", icon: SiGit, color: "text-red-500", level: "Advanced" },
+  { name: "AWS", icon: FaAws, color: "text-black dark:text-white", level: "Intermediate" },
+  { name: "Docker", icon: SiDocker, color: "text-blue-600", level: "Intermediate" },
+  { name: "Prisma", icon: SiPrisma, color: "text-neutral-500", level: "Advanced" },
 
-const frameworks = [
-  { name: "Tauri", icon: TauriOriginal, id: "tauri" },
-  { name: "React", icon: ReactOriginal, id: "react" },
-  { name: "Svelte", icon: SvelteOriginal, id: "svelte" },
-  { name: "Next.js", icon: NextjsOriginal, id: "nextjs" },
-  { name: "Express", icon: ExpressOriginalWordmark, id: "express" },
-  { name: "TailwindCSS", icon: TailwindcssOriginal, id: "tailwindcss" },
-];
+]
 
-const devops = [
-  { name: "GitHub", icon: GithubOriginal, id: "github" },
-  { name: "AWS", icon: AmazonwebservicesOriginalWordmark, id: "aws" },
-  { name: "Docker", icon: DockerOriginalWordmark, id: "docker" },
-];
-
-export default function Techs() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // Ensure this component is only rendered on the client
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null; // Avoid rendering dynamic theme-dependent code on the server
-  }
+export default function TechSection() {
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null)
 
   return (
-    <>
-      {/* titles */}
-      <div className="flex flex-col items-center justify-center gap-10 text-neutral-700 dark:text-neutral-200">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col items-center justify-center gap-6 mb-10 text-neutral-700 dark:text-neutral-200">
         <h1 className="text-center text-4xl font-bold md:text-6xl">
           {siteConfig.techs.title}
         </h1>
@@ -70,84 +54,41 @@ export default function Techs() {
           {siteConfig.techs.subtitle}
         </p>
       </div>
-
-      {/* langs */}
-      <div className="mt-16">
-        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
-          {siteConfig.techs.lang}
-        </h2>
-        <div className="grid grid-cols-3 items-center justify-center gap-5">
-          {langs.map((lang) => {
-            const Icon = lang.icon;
-            return (
-              <div
-                key={lang.id}
-                className="flex flex-col items-center justify-center gap-2"
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {techStack.map((tech) => (
+          <Card
+            key={tech.name}
+            className="group bg-transparent border-1 border-orange-600 relative overflow-hidden transition-all duration-300 ease-in-out"
+            onMouseEnter={() => setHoveredTech(tech.name)}
+            onMouseLeave={() => setHoveredTech(null)}
+          >
+            <CardBody className="flex flex-col items-center justify-center py-10 px-2">
+              <motion.div
+                className={`text-4xl mb-2 ${tech.color}`}
+                initial={{ scale: 1 }}
+                animate={{ scale: hoveredTech === tech.name ? 1.2 : 1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
-                <Icon
-                  size={80}
-                  className={` ${lang.id === "rust" && theme === "dark" ? "fill-[#f74c00]" : ""} `}
-                />
-                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
-                  {lang.name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+                <tech.icon />
+              </motion.div>
+              <p className="text-sm font-medium text-neutral-600 dark:text-neutral-300">{tech.name}</p>
+              {hoveredTech === tech.name && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute bottom-2 left-0 right-0 flex justify-center"
+                >
+                  <p className="text-sm font-semibold text-neutural-700 dark:text-neutural-100">
+                    {tech.level}
+                  </p>
+                </motion.div>
+              )}
+            </CardBody>
+          </Card>
+        ))}
       </div>
-
-      {/* frameworks */}
-      <div className="mt-16">
-        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
-          {siteConfig.techs.frmw}
-        </h2>
-        <div className="grid grid-cols-3 items-center justify-center gap-5">
-          {frameworks.map((framework) => {
-            const Icon = framework.icon;
-            return (
-              <div
-                key={framework.id}
-                className="flex flex-col items-center justify-center gap-2"
-              >
-                <Icon
-                  size={80}
-                  className={` ${framework.id === "express" && theme === "dark" ? "fill-neutral-200" : ""} `}
-                />
-                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
-                  {framework.name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* devops */}
-      <div className="mt-16">
-        <h2 className="mb-8 text-center text-2xl font-semibold text-neutral-700 dark:text-neutral-200 md:text-3xl">
-          {siteConfig.techs.dvops}
-        </h2>
-        <div className="grid grid-cols-3 items-center justify-center gap-5">
-          {devops.map((tool) => {
-            const Icon = tool.icon;
-            return (
-              <div
-                key={tool.id}
-                className="flex flex-col items-center justify-center gap-2"
-              >
-                <Icon
-                  size={80}
-                  className={` ${tool.id === "aws" && theme === "dark" ? "fill-white" : ""} `}
-                />
-                <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200 md:text-base">
-                  {tool.name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </>
-  );
+    </div>
+  )
 }
+
