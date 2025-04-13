@@ -16,7 +16,7 @@ export default function Home() {
         {/* text of the hero */}
         <div className="flex flex-col gap-10">
           {/*Marketed text*/}
-          <h1 className="text-left text-3xl font-extrabold text-neutral-700 dark:text-neutral-200 md:text-6xl">
+          <h1 className="text-4xl font-extrabold text-neutral-700 dark:text-neutral-200 md:text-6xl">
             {siteConfig.hero.big_one}
             <span>
               <FlipWords

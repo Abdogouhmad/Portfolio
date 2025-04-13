@@ -20,6 +20,7 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { Card, CardBody } from "@nextui-org/card";
+
 import { siteConfig } from "@/config/site";
 
 const techStack = [
@@ -118,9 +119,9 @@ export default function TechSection() {
           >
             <CardBody className="flex flex-col items-center justify-center px-2 py-10">
               <motion.div
+                animate={{ scale: hoveredTech === tech.name ? 1.2 : 1 }}
                 className={`mb-2 text-4xl ${tech.color}`}
                 initial={{ scale: 1 }}
-                animate={{ scale: hoveredTech === tech.name ? 1.2 : 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
                 <tech.icon />
@@ -130,10 +131,10 @@ export default function TechSection() {
               </p>
               {hoveredTech === tech.name && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
                   className="absolute bottom-2 left-0 right-0 flex justify-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <p className="text-neutural-700 dark:text-neutural-100 text-sm font-semibold">
                     {tech.level}

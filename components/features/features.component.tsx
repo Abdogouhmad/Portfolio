@@ -1,11 +1,13 @@
-import { siteConfig } from "@/config/site";
 import { MdOutlineDesignServices } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { MdOutlineHttp } from "react-icons/md";
 
+import { siteConfig } from "@/config/site";
+
 export default function ServicesProvided() {
   // Map icon names to their respective components
   const icons = [GrVmMaintenance, MdOutlineHttp, MdOutlineDesignServices];
+
   return (
     <>
       <div className="grid-col-1 grid items-center justify-center">
@@ -24,6 +26,7 @@ export default function ServicesProvided() {
         {siteConfig.services.feat.map((item, index) => {
           // Dynamically get the icon component
           const IconComponent = icons[index];
+
           return (
             <div
               key={index}
