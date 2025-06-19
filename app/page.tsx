@@ -1,14 +1,13 @@
 "use client";
 import { Card, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
-
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
 import me from "@/public/abdo.jpg";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
-
+import { ntype82Headline, ntype82Mono, ndot47, ntype82, letteraMono } from "@/config/fonts"
 export default function Home() {
   return (
     <section>
@@ -16,7 +15,9 @@ export default function Home() {
         {/* text of the hero */}
         <div className="flex flex-col gap-10">
           {/*Marketed text*/}
-          <h1 className="text-4xl font-extrabold text-neutral-700 dark:text-neutral-200 md:text-6xl">
+          <h1
+            className={`${ndot47.className} text-4xl text-wrap font-extrabold text-neutral-700 dark:text-neutral-200 md:text-6xl`}
+          >
             {siteConfig.hero.big_one}
             <span>
               <FlipWords
@@ -28,7 +29,7 @@ export default function Home() {
           </h1>
 
           {/*short of me*/}
-          <h2 className="text-left text-base font-medium text-neutral-700 dark:text-neutral-200">
+          <h2 className={`${ntype82Mono.className} text-left text-base text-neutral-700 dark:text-neutral-200`} >
             {siteConfig.hero.about_me}
           </h2>
 

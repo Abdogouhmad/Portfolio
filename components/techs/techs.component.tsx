@@ -20,7 +20,7 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { Card, CardBody } from "@nextui-org/card";
-
+import { ntype82Headline, ntype82Mono, ndot47, letteraMono } from "@/config/fonts"
 import { siteConfig } from "@/config/site";
 
 const techStack = [
@@ -102,10 +102,10 @@ export default function TechSection() {
   return (
     <div className="container mx-auto px-4">
       <div className="mb-10 flex flex-col items-center justify-center gap-6 text-neutral-700 dark:text-neutral-200">
-        <h1 className="text-center text-4xl font-bold md:text-6xl">
+        <h1 className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}>
           {siteConfig.techs.title}
         </h1>
-        <p className="text-center text-lg font-medium tracking-wide md:text-xl">
+        <p className={`${ntype82Headline.className} text-center text-lg font-medium tracking-wide md:text-xl`}>
           {siteConfig.techs.subtitle}
         </p>
       </div>
@@ -126,7 +126,7 @@ export default function TechSection() {
               >
                 <tech.icon />
               </motion.div>
-              <p className="text-sm font-medium text-neutral-600 dark:text-neutral-300">
+              <p className={`${letteraMono.className} text-base text-neutral-600 dark:text-neutral-300`}>
                 {tech.name}
               </p>
               {hoveredTech === tech.name && (
@@ -136,7 +136,7 @@ export default function TechSection() {
                   initial={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-neutural-700 dark:text-neutural-100 text-sm font-semibold">
+                  <p className={`${letteraMono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}>
                     {tech.level}
                   </p>
                 </motion.div>
