@@ -20,7 +20,8 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { Card, CardBody } from "@nextui-org/card";
-import { ntype82Headline, ntype82Mono, ndot47, letteraMono } from "@/config/fonts"
+
+import { ntype82Headline, ndot47, letteraMono } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 const techStack = [
@@ -102,18 +103,23 @@ export default function TechSection() {
   return (
     <div className="container mx-auto px-4">
       <div className="mb-10 flex flex-col items-center justify-center gap-6 text-neutral-700 dark:text-neutral-200">
-        <h1 className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}>
+        <h1
+          className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}
+        >
           {siteConfig.techs.title}
         </h1>
-        <p className={`${ntype82Headline.className} text-center text-lg font-medium tracking-wide md:text-xl`}>
+        <p
+          className={`${ntype82Headline.className} text-center text-lg font-medium tracking-wide md:text-xl`}
+        >
           {siteConfig.techs.subtitle}
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-5">
         {techStack.map((tech) => (
           <Card
             key={tech.name}
-            className="group relative overflow-hidden border-1 border-orange-600 bg-transparent transition-all duration-300 ease-in-out"
+            radius="sm"
+            className="group relative overflow-hidden border-1 border-dusty-600 bg-transparent transition-all duration-300 ease-in-out"
             onMouseEnter={() => setHoveredTech(tech.name)}
             onMouseLeave={() => setHoveredTech(null)}
           >
@@ -126,17 +132,21 @@ export default function TechSection() {
               >
                 <tech.icon />
               </motion.div>
-              <p className={`${letteraMono.className} text-base text-neutral-600 dark:text-neutral-300`}>
+              <p
+                className={`${letteraMono.className} text-base text-neutral-600 dark:text-neutral-300`}
+              >
                 {tech.name}
               </p>
               {hoveredTech === tech.name && (
                 <motion.div
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute bottom-2 left-0 right-0 flex justify-center"
+                  className="absolute right-0 bottom-2 left-0 flex justify-center"
                   initial={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className={`${letteraMono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}>
+                  <p
+                    className={`${letteraMono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}
+                  >
                     {tech.level}
                   </p>
                 </motion.div>

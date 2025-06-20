@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
-};
+// export const viewport: Viewport = {
+//   themeColor: [
+//     { media: "(prefers-color-scheme: light)", color: "white" },
+//     { media: "(prefers-color-scheme: dark)", color: "black" },
+//   ],
+// };
 
 export default function RootLayout({
   children,
@@ -38,14 +38,14 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          " min-h-screen font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex h-screen flex-col">
             <Navbar />
-            <main className="container mx-auto max-w-7xl flex-grow px-6 pb-20 pt-10">
+            <main className="container mx-auto max-w-7xl grow px-6 pt-10 pb-20">
               {children}
             </main>
             <footer className="flex w-full items-center justify-center border-t border-neutral-700 py-3 dark:border-neutral-600">
@@ -58,9 +58,9 @@ export default function RootLayout({
                 <span className="text-default-600">Powered by</span>
                 <p
                   className={clsx(
-                    linkStyles({ color: "warning", size: "lg" }),
+                    linkStyles({ size: "lg" }),
                     "relative inline-block font-semibold transition-all duration-700",
-                    "hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text hover:text-transparent",
+                    "hover:bg-linear-to-r hover:from-dusty-400 hover:to-dusty-600 hover:bg-clip-text hover:text-transparent",
                   )}
                 >
                   AG

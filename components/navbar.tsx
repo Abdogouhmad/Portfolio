@@ -14,19 +14,20 @@ import clsx from "clsx";
 import { FaBluesky } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
-import { title } from "./primitives";
+// import { title } from "./primitives";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon, DiscordIcon } from "@/components/icons";
+import { ndot47 } from "@/config/fonts";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar maxWidth="xl" position="static" className="shadow-xl dark:shadow-navycharcoal-700/50">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
-            <h1 className={title({ color: "yellow", size: "sm" })}> AG </h1>
+            <h1 className={`${ndot47.className} text-5xl text-custgray-900 dark:text-custgray-500`}> AG </h1>
           </NextLink>
         </NavbarBrand>
         <ul className="ml-2 hidden justify-start gap-4 md:flex">
@@ -36,7 +37,7 @@ export const Navbar = () => {
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   "relative inline-block font-semibold transition-all duration-700",
-                  "hover:bg-gradient-to-r hover:from-[#FF705B] hover:to-[#FFB457] hover:bg-clip-text hover:text-transparent",
+                  "hover:bg-linear-to-r hover:from-dusty-400 hover:to-dusty-600 hover:bg-clip-text hover:text-transparent",
                 )}
                 href={item.href}
               >
@@ -82,10 +83,10 @@ const SocialMedia = () => {
   return (
     <>
       <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-        <FaSquareXTwitter className="h-[20px] w-[20px] text-default-500 lg:h-[24px] lg:w-[24px]" />
+        <FaSquareXTwitter className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
       </Link>
       <Link isExternal aria-label="BlueSky" href={siteConfig.links.blusky}>
-        <FaBluesky className="h-[20px] w-[20px] text-default-500 lg:h-[24px] lg:w-[24px]" />
+        <FaBluesky className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
       </Link>
       <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
         <DiscordIcon className="text-default-500" />

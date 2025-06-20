@@ -1,3 +1,55 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin './hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Light Neutral (Gray) */
+  --color-custgray-100: #ffffff;
+  --color-custgray-200: #f5f5f5;
+  --color-custgray-300: #e5e5e5;
+  --color-custgray-400: #d4d4d4;
+  --color-custgray-500: #a3a3a3;
+  --color-custgray-600: #737373;
+  --color-custgray-700: #525252;
+  --color-custgray-800: #404040;
+  --color-custgray-900: #262626;
+
+  /* Dark Neutral (Navy‑Charcoal) */
+  --color-navycharcoal-100: #f5f6fa;
+  --color-navycharcoal-200: #e1e3ed;
+  --color-navycharcoal-300: #c7c9dc;
+  --color-navycharcoal-400: #a3a8ba;
+  --color-navycharcoal-500: #737a8e;
+  --color-navycharcoal-600: #52576b;
+  --color-navycharcoal-700: #3f4251;
+  --color-navycharcoal-800: #2e2f3e;
+  --color-navycharcoal-900: #1e1e2f;
+
+  /* Accent (Dusty Blue) */
+  --color-dusty-100: #eff6fb;
+  --color-dusty-200: #d9eefa;
+  --color-dusty-300: #b0d5f7;
+  --color-dusty-400: #89bcea;
+  --color-dusty-500: #5fa3dc;
+  --color-dusty-600: #477aa7;
+  --color-dusty-700: #345b79;
+  --color-dusty-800: #243b4f;
+  --color-dusty-900: #1a2736;
+}
+
+html {
+  background-color: var(--color-custgray-200);
+  color: var(--color-custgray-900);
+}
+
+html.dark {
+  background-color: var(--color-navycharcoal-900);
+  color: var(--color-navycharcoal-200);
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}

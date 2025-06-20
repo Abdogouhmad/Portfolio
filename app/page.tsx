@@ -1,13 +1,14 @@
 "use client";
 import { Card, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
+
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
 import me from "@/public/abdo.jpg";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
-import { ntype82Headline, ntype82Mono, ndot47, ntype82, letteraMono } from "@/config/fonts"
+import { ntype82Mono, ndot47 } from "@/config/fonts";
 export default function Home() {
   return (
     <section>
@@ -16,12 +17,12 @@ export default function Home() {
         <div className="flex flex-col gap-10">
           {/*Marketed text*/}
           <h1
-            className={`${ndot47.className} text-4xl text-wrap font-extrabold text-neutral-700 dark:text-neutral-200 md:text-6xl`}
+            className={`${ndot47.className} leading-[1.2] text-4xl font-extrabold text-wrap text-neutral-700 md:text-6xl dark:text-neutral-200`}
           >
             {siteConfig.hero.big_one}
             <span>
               <FlipWords
-                className="text-orange-500 dark:text-orange-400"
+                className="text-dusty-500 dark:text-dusty-400"
                 words={siteConfig.hero.fliped}
               />
             </span>
@@ -29,7 +30,9 @@ export default function Home() {
           </h1>
 
           {/*short of me*/}
-          <h2 className={`${ntype82Mono.className} text-left text-base text-neutral-700 dark:text-neutral-200`} >
+          <h2
+            className={`${ntype82Mono.className} text-left text-base text-neutral-700 dark:text-neutral-200`}
+          >
             {siteConfig.hero.about_me}
           </h2>
 
@@ -56,8 +59,8 @@ export default function Home() {
             width={400}
           />
           {/* Footer */}
-          <CardFooter className="absolute bottom-2 left-2 right-2 flex flex-col items-start rounded-sm bg-gradient-to-t from-[#FF705B]/90 to-[#FFB457]/70 px-4 py-3 shadow-xl">
-            <p className="text-sm font-semibold italic text-neutral-700">
+          <CardFooter className="absolute right-2 bottom-2 left-2 flex flex-col items-start rounded-sm bg-linear-to-t from-[#FF705B]/90 to-[#FFB457]/70 px-4 py-3 shadow-xl">
+            <p className="text-sm font-semibold text-neutral-700 italic">
               "Many ideas grow better when transplanted into another mind than
               the one where they sprang up."
             </p>
@@ -74,7 +77,7 @@ export default function Home() {
         <ServicesProvided />
       </article>
       <div className="h-32" />
-      <hr className="absolute left-0 right-0 w-screen border-0 border-t-[1px] border-neutral-700 dark:border-stone-700" />
+      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-700 dark:border-stone-700" />
       <div className="h-32" />
       {/* Techs I know :) */}
       <article>

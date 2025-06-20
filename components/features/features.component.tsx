@@ -1,7 +1,13 @@
 import { MdOutlineDesignServices } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { MdOutlineHttp } from "react-icons/md";
-import { ntype82Headline, ntype82Mono, ndot47, letteraMono } from "@/config/fonts"
+
+import {
+  ntype82Headline,
+  ntype82Mono,
+  ndot47,
+  letteraMono,
+} from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 export default function ServicesProvided() {
@@ -13,10 +19,14 @@ export default function ServicesProvided() {
       <div className="grid-col-1 grid items-center justify-center">
         {/* titles */}
         <div className="flex flex-col gap-10 text-neutral-700 dark:text-neutral-200">
-          <h1 className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}>
+          <h1
+            className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}
+          >
             {siteConfig.services.title1}
           </h1>
-          <p className={`${ntype82Mono.className} text-center text-lg font-light tracking-wide md:text-xl`}>
+          <p
+            className={`${ntype82Mono.className} text-center text-lg font-light tracking-wide md:text-xl`}
+          >
             {siteConfig.services.title2}
           </p>
         </div>
@@ -35,13 +45,19 @@ export default function ServicesProvided() {
               {/* Render icon */}
               {IconComponent && (
                 <div className="flex justify-center">
-                  <IconComponent className="size-16 rounded-full bg-gradient-to-r from-[#FF705B]/80 to-[#FFB457]/80 p-3 text-white" />
+                  <IconComponent className="size-16 rounded-full bg-linear-to-r from-[#FF705B]/80 to-[#FFB457]/80 p-3 text-white" />
                 </div>
               )}
-              <h2 className={`${ntype82Headline.className} text-center text-2xl font-semibold`}>
+              <h2
+                className={`${ntype82Headline.className} text-center text-2xl font-semibold`}
+              >
                 {item.title}
               </h2>
-              <p className={`${letteraMono.className} text-center text-lg font-normal`}>{item.sub}</p>
+              <p
+                className={`${letteraMono.className} text-center text-lg font-normal`}
+              >
+                {item.sub}
+              </p>
             </div>
           );
         })}
