@@ -119,7 +119,7 @@ export default function TechSection() {
           <Card
             key={tech.name}
             radius="sm"
-            className="group relative overflow-hidden border-1 border-dusty-600 bg-transparent transition-all duration-300 ease-in-out"
+            className="group border-dusty-600 relative overflow-hidden border-1 bg-transparent transition-all duration-300 ease-in-out"
             onMouseEnter={() => setHoveredTech(tech.name)}
             onMouseLeave={() => setHoveredTech(null)}
           >

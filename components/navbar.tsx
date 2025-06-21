@@ -23,11 +23,20 @@ import { ndot47 } from "@/config/fonts";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="static" className="shadow-xl dark:shadow-navycharcoal-700/50">
+    <NextUINavbar
+      maxWidth="xl"
+      position="static"
+      className="dark:shadow-navycharcoal-700/50 shadow-xl"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
-            <h1 className={`${ndot47.className} text-5xl text-custgray-900 dark:text-custgray-500`}> AG </h1>
+            <h1
+              className={`${ndot47.className} text-custgray-900 dark:text-custgray-500 text-5xl`}
+            >
+              {" "}
+              AG{" "}
+            </h1>
           </NextLink>
         </NavbarBrand>
         <ul className="ml-2 hidden justify-start gap-4 md:flex">
@@ -37,7 +46,7 @@ export const Navbar = () => {
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   "relative inline-block font-semibold transition-all duration-700",
-                  "hover:bg-linear-to-r hover:from-dusty-400 hover:to-dusty-600 hover:bg-clip-text hover:text-transparent",
+                  "hover:from-dusty-400 hover:to-dusty-600 hover:bg-linear-to-r hover:bg-clip-text hover:text-transparent",
                 )}
                 href={item.href}
               >

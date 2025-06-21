@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
-import me from "@/public/abdo.jpg";
+import me from "@/public/me.png";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
@@ -17,7 +17,7 @@ export default function Home() {
         <div className="flex flex-col gap-10">
           {/*Marketed text*/}
           <h1
-            className={`${ndot47.className} leading-[1.2] text-4xl font-extrabold text-wrap text-neutral-700 md:text-6xl dark:text-neutral-200`}
+            className={`${ndot47.className} text-4xl leading-[1.2] font-extrabold text-wrap text-neutral-700 md:text-6xl dark:text-neutral-200`}
           >
             {siteConfig.hero.big_one}
             <span>
@@ -47,7 +47,8 @@ export default function Home() {
         </div>
         {/* Card and Image */}
         <Card className="relative max-h-fit max-w-fit border-none" radius="sm">
-          {/* Image Insert */}
+          {/* Image Insert */}{" "}
+          {/* NOTE: change the pic image to match the colors */}
           <Image
             alt="me"
             className="min-h-fit max-w-fit rounded-sm object-cover"
@@ -59,15 +60,17 @@ export default function Home() {
             width={400}
           />
           {/* Footer */}
-          <CardFooter className="absolute right-2 bottom-2 left-2 flex flex-col items-start rounded-sm bg-linear-to-t from-[#FF705B]/90 to-[#FFB457]/70 px-4 py-3 shadow-xl">
-            <p className="text-sm font-semibold text-neutral-700 italic">
+          {/*
+          <CardFooter className="absolute right-2 bottom-2 left-2 flex flex-col items-start rounded-sm bg-linear-to-t from-dusty-400/90 to-dusty-700/70 px-4 py-3 shadow-xl">
+            <p className="text-sm font-semibold text-custgray-800 italic">
               "Many ideas grow better when transplanted into another mind than
               the one where they sprang up."
             </p>
-            <span className="mt-1 text-xs font-medium text-neutral-600">
+            <span className="mt-1 text-xs font-medium text-custgray-600">
               – Oliver Wendell Holmes
             </span>
           </CardFooter>
+          */}
         </Card>
       </article>
       {/* Add a gap between hero and features */}

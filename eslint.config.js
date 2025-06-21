@@ -28,8 +28,8 @@ export default [
       "node_modules",
       "coverage",
       ".next",
-      "build"
-    ]
+      "build",
+    ],
   },
   js.configs.recommended,
   {
@@ -38,8 +38,8 @@ export default [
       ecmaVersion: 2021,
       sourceType: "module",
       parserOptions: {
-        ecmaFeatures: { jsx: true }
-      }
+        ecmaFeatures: { jsx: true },
+      },
     },
     plugins: {
       react,
@@ -49,10 +49,10 @@ export default [
       "unused-imports": unusedImports,
       import: importPlugin,
       "@next/next": next,
-      "@typescript-eslint": tseslint
+      "@typescript-eslint": tseslint,
     },
     settings: {
-      react: { version: "detect" }
+      react: { version: "detect" },
     },
     rules: {
       "no-console": "warn",
@@ -72,8 +72,8 @@ export default [
         {
           args: "after-used",
           ignoreRestSiblings: false,
-          argsIgnorePattern: "^_.*?$"
-        }
+          argsIgnorePattern: "^_.*?$",
+        },
       ],
       "import/order": [
         "warn",
@@ -86,17 +86,17 @@ export default [
             "internal",
             "parent",
             "sibling",
-            "index"
+            "index",
           ],
           pathGroups: [
             {
               pattern: "~/**",
               group: "external",
-              position: "after"
-            }
+              position: "after",
+            },
           ],
-          "newlines-between": "always"
-        }
+          "newlines-between": "always",
+        },
       ],
       "react/self-closing-comp": "warn",
       "react/jsx-sort-props": [
@@ -105,8 +105,8 @@ export default [
           callbacksLast: true,
           shorthandFirst: true,
           noSortAlphabetically: false,
-          reservedFirst: true
-        }
+          reservedFirst: true,
+        },
       ],
       "padding-line-between-statements": [
         "warn",
@@ -115,9 +115,9 @@ export default [
         {
           blankLine: "any",
           prev: ["const", "let", "var"],
-          next: ["const", "let", "var"]
-        }
-      ]
-    }
-  }
+          next: ["const", "let", "var"],
+        },
+      ],
+    },
+  },
 ];
