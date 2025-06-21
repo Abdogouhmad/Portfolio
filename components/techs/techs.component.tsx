@@ -21,7 +21,7 @@ import {
 import { FaAws } from "react-icons/fa";
 import { Card, CardBody } from "@nextui-org/card";
 
-import { ntype82Headline, ndot47, letteraMono } from "@/config/fonts";
+import { ntype82Headline, ndot47, ntype82Mono } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 const techStack = [
@@ -133,7 +133,7 @@ export default function TechSection() {
                 <tech.icon />
               </motion.div>
               <p
-                className={`${letteraMono.className} text-base text-neutral-600 dark:text-neutral-300`}
+                className={`${ndot47.className} text-base text-neutral-600 dark:text-neutral-300`}
               >
                 {tech.name}
               </p>
@@ -145,7 +145,7 @@ export default function TechSection() {
                   transition={{ duration: 0.3 }}
                 >
                   <p
-                    className={`${letteraMono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}
+                    className={`${ntype82Mono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}
                   >
                     {tech.level}
                   </p>

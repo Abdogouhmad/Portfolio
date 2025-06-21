@@ -45,7 +45,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "relative inline-block font-semibold transition-all duration-700",
+                  `${ndot47.className} relative inline-block text-lg transition-all duration-700`,
                   "hover:from-dusty-400 hover:to-dusty-600 hover:bg-linear-to-r hover:bg-clip-text hover:text-transparent",
                 )}
                 href={item.href}
@@ -74,8 +74,8 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
+        <div className={`${ndot47.className} mx-4 mt-2 flex flex-col gap-2`}>
+          {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link color="foreground" href={item.href} size="lg">
                 {item.label}
@@ -84,24 +84,25 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-    </NextUINavbar>
+    </NextUINavbar >
   );
 };
 
 const SocialMedia = () => {
+  const styledIcon = "text-custgray-800 dark:text-custgray-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]"
   return (
     <>
       <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-        <FaSquareXTwitter className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
+        <FaSquareXTwitter className={styledIcon} />
       </Link>
       <Link isExternal aria-label="BlueSky" href={siteConfig.links.blusky}>
-        <FaBluesky className="text-default-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]" />
+        <FaBluesky className={styledIcon} />
       </Link>
       <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-        <DiscordIcon className="text-default-500" />
+        <DiscordIcon className={styledIcon} />
       </Link>
       <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-        <GithubIcon className="text-default-500" />
+        <GithubIcon className={styledIcon} />
       </Link>
     </>
   );

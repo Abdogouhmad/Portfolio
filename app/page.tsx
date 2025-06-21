@@ -31,7 +31,7 @@ export default function Home() {
 
           {/*short of me*/}
           <h2
-            className={`${ntype82Mono.className} text-left text-base text-neutral-700 dark:text-neutral-200`}
+            className={`${ntype82Mono.className} text-justify text-base text-custgray-700 dark:text-custgray-200`}
           >
             {siteConfig.hero.about_me}
           </h2>
@@ -51,8 +51,7 @@ export default function Home() {
           {/* NOTE: change the pic image to match the colors */}
           <Image
             alt="me"
-            className="min-h-fit max-w-fit rounded-sm object-cover"
-            height={400}
+            className="min-h-fit md:min-w-fit rounded-lg object-fit"
             placeholder="blur"
             priority={true}
             quality={100}
@@ -80,7 +79,7 @@ export default function Home() {
         <ServicesProvided />
       </article>
       <div className="h-32" />
-      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-700 dark:border-stone-700" />
+      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-custgray-700/50 dark:border-navycharcoal-700" />
       <div className="h-32" />
       {/* Techs I know :) */}
       <article>

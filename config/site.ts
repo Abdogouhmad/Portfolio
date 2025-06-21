@@ -5,28 +5,6 @@ export const siteConfig = {
   description: "Welcome to my personal portfolio.",
   navItems: [
     {
-      label: "About",
-      href: "#about",
-    },
-    {
-      label: "Experience",
-      href: "#experience",
-    },
-    {
-      label: "Projects",
-      href: "#project",
-    },
-    {
-      label: "Contact",
-      href: "#contact",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "About",
-      href: "#about",
-    },
-    {
       label: "Experience",
       href: "#experience",
     },
@@ -50,7 +28,7 @@ export const siteConfig = {
     big_two: "hands and grow for a brighter tomorrow.",
     fliped: ["trusted", "skilled"],
     about_me:
-      "Hey there! Call me AG. I enjoy creating kickass websites and web/mobile apps, that matches your desire.",
+      "Hey, I’m Abderrahman Gouhmad 👋 a creative developer crafting sleek web & mobile apps with TypeScript, Rust, Next.js, Flutter & Tailwind CSS 🚀. My journey from linguistics to code fuels my passion for intuitive, user-centric solutions and puzzle-like problem-solving 🧩. Let’s team up to bring your digital ideas to life and make a real impact 💡!",
   },
   my_info: {
     name: "Abderrahman Gouhmad",
@@ -74,31 +52,31 @@ export const siteConfig = {
   ],
 
   services: {
-    title1: "You‘re Safe And in Good Hands",
+    title1: "Secure. Reliable. Built for Impact.",
     title2:
-      "Honed skills, unwavering dedication, and a genuine focus on your needs come together to provide a truly exceptional experience.",
+      "Focused expertise and sharp execution to scale your digital product with confidence.",
     feat: [
       {
-        title: "Continuous support",
-        sub: "I specialize in advancing and maintaining your web-based software to keep it running smoothly and competitively. Leveraging proven DevOps processes, I deliver urgent updates within hours and roll out planned, feature-rich modules on a bi-weekly schedule, ensuring your product always meets market demands.",
-        icon: "GrVmMaintenance", // Placeholder for an icon representing DevOps
+        title: "DevOps & Support",
+        sub: "Fast, reliable maintenance using CI/CD pipelines and proven DevOps workflows. I ship hotfixes in hours and roll out stable, feature-rich updates bi-weekly.",
+        icon: "GrVmMaintenance",
       },
       {
-        title: "Robust Backend",
-        sub: "I implement your web app's business logic with precision, utilizing proven frameworks to ensure fast, high-quality development. My approach includes building well-structured APIs that seamlessly integrate your application with corporate systems and third-party services, delivering reliable and scalable solutions.",
-        icon: "MdOutlineHttp", // Placeholder for an icon representing Backend
+        title: "Backend Engineering",
+        sub: "Robust APIs and scalable architecture built with modern frameworks. I integrate business logic seamlessly with third-party services and internal systems.",
+        icon: "MdOutlineHttp",
       },
       {
-        title: "Front-End Development",
-        sub: "I deeply analyze your target audience to understand their needs and translate these insights into intuitive UI designs. Collaborating with project stakeholders, I ensure the look and feel align with your goals, bringing it to life using cutting-edge front-end technologies for a seamless user experience.",
-        icon: "MdOutlineDesignServices", // Placeholder for an icon representing Frontend
+        title: "Frontend Development",
+        sub: "User-first interfaces built with precision. I turn audience insights into polished UIs using modern front-end stacks for performance and accessibility.",
+        icon: "MdOutlineDesignServices",
       },
     ],
   },
 
   techs: {
-    title: "A Good Stack to empowere your Businesses",
-    subtitle: "Good choices bring great innovations to life",
+      title: "A Powerful Tech Stack for Real Results",
+  subtitle: "Smart tools. Better products. Faster delivery.",
     lang: "Languages",
     frmw: "Framworks",
     dvops: "DevOps",

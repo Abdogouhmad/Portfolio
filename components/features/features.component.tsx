@@ -3,10 +3,8 @@ import { GrVmMaintenance } from "react-icons/gr";
 import { MdOutlineHttp } from "react-icons/md";
 
 import {
-  ntype82Headline,
   ntype82Mono,
   ndot47,
-  letteraMono,
 } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
@@ -45,16 +43,16 @@ export default function ServicesProvided() {
               {/* Render icon */}
               {IconComponent && (
                 <div className="flex justify-center">
-                  <IconComponent className="size-16 rounded-full bg-linear-to-r from-[#FF705B]/80 to-[#FFB457]/80 p-3 text-white" />
+                  <IconComponent className="size-16 rounded-full bg-linear-to-r from-dusty-400/80 to-dusty-600/80 p-3 text-white" />
                 </div>
               )}
               <h2
-                className={`${ntype82Headline.className} text-center text-2xl font-semibold`}
+                className={`${ndot47.className} text-center text-2xl font-semibold`}
               >
                 {item.title}
               </h2>
               <p
-                className={`${letteraMono.className} text-center text-lg font-normal`}
+                className={`${ntype82Mono.className} text-left text-base leading-relaxed`}
               >
                 {item.sub}
               </p>
