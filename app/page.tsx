@@ -1,10 +1,10 @@
 "use client";
-import { Card, CardFooter } from "@nextui-org/card";
+import { Card } from "@nextui-org/card";
 import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
-import me from "@/public/me.png";
+import me from "@/public/me_blue.png";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
@@ -51,7 +51,7 @@ export default function Home() {
           {/* NOTE: change the pic image to match the colors */}
           <Image
             alt="me"
-            className="min-h-fit md:min-w-fit rounded-lg object-fit"
+            className="min-h-fit md:min-w-fit object-contain md:object-cover"
             placeholder="blur"
             priority={true}
             quality={100}
