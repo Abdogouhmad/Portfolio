@@ -2,10 +2,7 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { GrVmMaintenance } from "react-icons/gr";
 import { MdOutlineHttp } from "react-icons/md";
 
-import {
-  ntype82Mono,
-  ndot47,
-} from "@/config/fonts";
+import { ntype82Mono, ndot47 } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 export default function ServicesProvided() {
@@ -43,7 +40,7 @@ export default function ServicesProvided() {
               {/* Render icon */}
               {IconComponent && (
                 <div className="flex justify-center">
-                  <IconComponent className="size-16 rounded-full bg-linear-to-r from-dusty-400/80 to-dusty-600/80 p-3 text-white" />
+                  <IconComponent className="from-dusty-400/80 to-dusty-600/80 size-16 rounded-full bg-linear-to-r p-3 text-white" />
                 </div>
               )}
               <h2
