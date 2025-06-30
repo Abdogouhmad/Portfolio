@@ -1,4 +1,21 @@
+import minirs from "../public/minirs.png";
+import diwan from "../public/editor.png";
+import conv from "../public/conv.png";
+import { FaRust } from "react-icons/fa";
+import { ReactNode } from "react";
+import { StaticImageData } from "next/image";
+
 export type SiteConfig = typeof siteConfig;
+export type ProjectSite = typeof Projectsite;
+
+
+interface Project {
+  icons: ReactNode[];
+  img: StaticImageData;
+  alt: string;
+  title: string;
+  description: string;
+}
 
 export const siteConfig = {
   name: "AG",
@@ -75,10 +92,38 @@ export const siteConfig = {
   },
 
   techs: {
-      title: "A Powerful Tech Stack for Real Results",
-  subtitle: "Smart tools. Better products. Faster delivery.",
+    title: "A Powerful Tech Stack for Real Results",
+    subtitle: "Smart tools. Better products. Faster delivery.",
     lang: "Languages",
     frmw: "Framworks",
     dvops: "DevOps",
   },
 };
+
+// TODO: Fix this ;)
+export const Projectsite: Project[]  = [
+  {
+    icons: [<FaRust   />],
+    img: diwan,
+    alt: "Diwan Editor",
+    title: "Diwan",
+    description:
+      "A lightweight, Rust-based text editor focused on performance and minimal resource usage.",
+  },
+  {
+    icons: [<FaRust  />],
+    img: minirs,
+    alt: "Mini rust server",
+    title: "MiniRs",
+    description:
+      "A minimal and configurable HTTP server built with Rust, leveraging a simple config.toml for setup.",
+  },
+  {
+    icons: [<FaRust  />],
+    img: conv,
+    alt: "HMTL To PDF convertor",
+    title: "RST-Convertor",
+    description:
+      "A fast and efficient Rust CLI tool that converts HTML to PDF with minimal system resource consumption.",
+  },
+];

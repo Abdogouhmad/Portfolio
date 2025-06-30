@@ -1,14 +1,15 @@
 "use client";
 import { Card } from "@nextui-org/card";
-import Image from "next/image";
-
+import { ntype82Mono, ndot47 } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
+import Image from "next/image";
 import me from "@/public/me_blue.png";
 import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
-import { ntype82Mono, ndot47 } from "@/config/fonts";
+import Mprojects from "@/components/projects/projects.component";
+
 export default function Home() {
   return (
     <section>
@@ -31,7 +32,7 @@ export default function Home() {
 
           {/*short of me*/}
           <h2
-            className={`${ntype82Mono.className} text-justify text-base text-custgray-700 dark:text-custgray-200`}
+            className={`${ntype82Mono.className} text-custgray-700 dark:text-custgray-200 text-justify text-base`}
           >
             {siteConfig.hero.about_me}
           </h2>
@@ -51,7 +52,7 @@ export default function Home() {
           {/* NOTE: change the pic image to match the colors */}
           <Image
             alt="me"
-            className="min-h-fit md:min-w-fit object-contain md:object-cover"
+            className="min-h-fit object-contain md:min-w-fit md:object-cover"
             placeholder="blur"
             priority={true}
             quality={100}
@@ -79,11 +80,15 @@ export default function Home() {
         <ServicesProvided />
       </article>
       <div className="h-32" />
-      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-custgray-700/50 dark:border-navycharcoal-700" />
+      <hr className="border-custgray-700/50 dark:border-navycharcoal-700 absolute right-0 left-0 w-screen border-0 border-t" />
       <div className="h-32" />
       {/* Techs I know :) */}
       <article>
         <TechSection />
+      </article>
+      <div className="h-32" />
+      <article>
+        <Mprojects />
       </article>
     </section>
   );
