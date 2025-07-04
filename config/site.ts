@@ -1,16 +1,14 @@
+// config/site.ts
 import minirs from "../public/minirs.png";
 import diwan from "../public/editor.png";
 import conv from "../public/conv.png";
-import { FaRust } from "react-icons/fa";
-import { ReactNode } from "react";
 import { StaticImageData } from "next/image";
 
 export type SiteConfig = typeof siteConfig;
 export type ProjectSite = typeof Projectsite;
 
-
 interface Project {
-  icons: ReactNode[];
+  iconNames: string[]; // Changed from ReactNode[] to string[]
   img: StaticImageData;
   alt: string;
   title: string;
@@ -45,7 +43,7 @@ export const siteConfig = {
     big_two: "hands and grow for a brighter tomorrow.",
     fliped: ["trusted", "skilled"],
     about_me:
-      "Hey, I’m Abderrahman Gouhmad 👋 a creative developer crafting sleek web & mobile apps with TypeScript, Rust, Next.js, Flutter & Tailwind CSS 🚀. My journey from linguistics to code fuels my passion for intuitive, user-centric solutions and puzzle-like problem-solving 🧩. Let’s team up to bring your digital ideas to life and make a real impact 💡!",
+      "Hey, I'm Abderrahman Gouhmad 👋 a creative developer crafting sleek web & mobile apps with TypeScript, Rust, Next.js, Flutter & Tailwind CSS 🚀. My journey from linguistics to code fuels my passion for intuitive, user-centric solutions and puzzle-like problem-solving 🧩. Let's team up to bring your digital ideas to life and make a real impact 💡!",
   },
   my_info: {
     name: "Abderrahman Gouhmad",
@@ -67,7 +65,6 @@ export const siteConfig = {
       external: true,
     },
   ],
-
   services: {
     title1: "Secure. Reliable. Built for Impact.",
     title2:
@@ -90,7 +87,6 @@ export const siteConfig = {
       },
     ],
   },
-
   techs: {
     title: "A Powerful Tech Stack for Real Results",
     subtitle: "Smart tools. Better products. Faster delivery.",
@@ -98,12 +94,16 @@ export const siteConfig = {
     frmw: "Framworks",
     dvops: "DevOps",
   },
+  project: {
+    title: "Things I've Built",
+    subtitle: "Scalable and Performant Projects I’ve Engineered"
+  }
+
 };
 
-// TODO: Fix this ;)
-export const Projectsite: Project[]  = [
+export const Projectsite: Project[] = [
   {
-    icons: [<FaRust   />],
+    iconNames: ["FaRust"], // Using string instead of JSX
     img: diwan,
     alt: "Diwan Editor",
     title: "Diwan",
@@ -111,7 +111,7 @@ export const Projectsite: Project[]  = [
       "A lightweight, Rust-based text editor focused on performance and minimal resource usage.",
   },
   {
-    icons: [<FaRust  />],
+    iconNames: ["FaRust", "FaRust"], // Multiple icons
     img: minirs,
     alt: "Mini rust server",
     title: "MiniRs",
@@ -119,10 +119,10 @@ export const Projectsite: Project[]  = [
       "A minimal and configurable HTTP server built with Rust, leveraging a simple config.toml for setup.",
   },
   {
-    icons: [<FaRust  />],
+    iconNames: ["FaRust"],
     img: conv,
-    alt: "HMTL To PDF convertor",
-    title: "RST-Convertor",
+    alt: "HTML To PDF converter",
+    title: "RST-Converter",
     description:
       "A fast and efficient Rust CLI tool that converts HTML to PDF with minimal system resource consumption.",
   },

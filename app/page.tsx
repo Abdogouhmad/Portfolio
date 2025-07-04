@@ -87,7 +87,7 @@ export default function Home() {
         <TechSection />
       </article>
       <div className="h-32" />
-      <article>
+      <article >
         <Mprojects />
       </article>
     </section>
