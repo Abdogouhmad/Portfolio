@@ -4,11 +4,13 @@ import diwan from "../public/editor.png";
 import conv from "../public/conv.png";
 import { StaticImageData } from "next/image";
 
+
 export type SiteConfig = typeof siteConfig;
 export type ProjectSite = typeof Projectsite;
 
 interface Project {
   iconNames: string[]; // Changed from ReactNode[] to string[]
+  lang: string[],
   img: StaticImageData;
   alt: string;
   title: string;
@@ -103,7 +105,8 @@ export const siteConfig = {
 
 export const Projectsite: Project[] = [
   {
-    iconNames: ["FaRust"], // Using string instead of JSX
+    iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
+    lang: ["Rust", "Toml"],
     img: diwan,
     alt: "Diwan Editor",
     title: "Diwan",
@@ -111,7 +114,8 @@ export const Projectsite: Project[] = [
       "A lightweight, Rust-based text editor focused on performance and minimal resource usage.",
   },
   {
-    iconNames: ["FaRust", "FaRust"], // Multiple icons
+    iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
+    lang: ["Rust", "Toml"],
     img: minirs,
     alt: "Mini rust server",
     title: "MiniRs",
@@ -119,7 +123,8 @@ export const Projectsite: Project[] = [
       "A minimal and configurable HTTP server built with Rust, leveraging a simple config.toml for setup.",
   },
   {
-    iconNames: ["FaRust"],
+    iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
+    lang: ["Rust", "Toml"],
     img: conv,
     alt: "HTML To PDF converter",
     title: "RST-Converter",
