@@ -29,38 +29,47 @@ export default function TheCard({
   description = "",
 }: CardProps) {
   return (
-    <Card className={stylecard} shadow="md">
-      {/* Card Header - Image Section */}
-      <CardHeader className="flex justify-center">
-        <Image
-          src={img}
-          alt={imgalt}
-          width={size.width}
-          height={size.height}
-          className="rounded"
-        />
-      </CardHeader>
+    <div className={`relative group transition-all duration-300 ease-in-out hover:-translate-y-2 ${stylecard}`}>
+      {/* Glow effect using ::before emulation */}
+      <div className="absolute inset-0 -z-10 rounded-2xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-50"
+        style={{
+          background: "conic-gradient(from 90deg at 50% 50%, #10B981, #3B82F6, #8B5CF6, #EC4899, #F59E0B, #10B981)"
+        }}>
+      </div>
 
-      {/* Card Body - Title & Description */}
-      <CardBody className="gap-3">
-        <h1 className={`${ndot47.className} text-xl text-center`}>{title}</h1>
-        {description && <p className="text-base text-custgray-600 text-left">{description}</p>}
-      </CardBody>
+      <Card className="bg-custgray-200 dark:bg-navycharcoal-900/20 rounded-2xl overflow-hidden flex flex-col h-full shadow-lg transition-transform">
+        {/* Card Header - Image */}
+        <CardHeader className="flex justify-center p-0">
+          <Image
+            src={img}
+            alt={imgalt}
+            width={size.width}
+            height={size.height}
+            className="w-full h-48 object-cover"
+          />
+        </CardHeader>
 
-      {/* Card Footer - Chips with Icon + Lang */}
-      <CardFooter className="flex flex-wrap gap-2">
-        {iconame.map((Icon, index) => (
-          <Chip
-            key={index}
-            startContent={<Icon />}
-            radius="sm"
-            size="sm"
-            className="bg-custgray-200 text-custgray-800 dark:text-custgray-200 border gap-1 text-sm p-2 border-custgray-800/60 dark:border-navycharcoal-800/30 dark:bg-navycharcoal-800"
-          >
-            {langs[index]}
-          </Chip>
-        ))}
-      </CardFooter>
-    </Card>
+        {/* Card Body */}
+        <CardBody className="flex flex-col flex-grow gap-4 p-6">
+          <h2 className={`${ndot47.className} text-2xl font-bold text-center`}>{title}</h2>
+          {description && <p className="text-gray-400 text-left flex-grow">{description}</p>}
+        </CardBody>
+
+        {/* Card Footer */}
+        <CardFooter className="flex flex-wrap gap-2 px-6 pb-6">
+          {iconame.map((Icon, index) => (
+            <Chip
+              key={index}
+              startContent={<Icon className="text-sm" />}
+              radius="sm"
+              size="sm"
+              className="bg-navycharcoal-700 text-white text-sm font-medium px-3 py-1 rounded-full"
+            >
+              {langs[index]}
+            </Chip>
+          ))}
+        </CardFooter>
+      </Card>
+    </div>
   );
 }
