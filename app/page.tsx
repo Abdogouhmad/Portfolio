@@ -5,10 +5,10 @@ import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
 import Image from "next/image";
 import me from "@/public/me_blue.png";
-import Sxbtn from "@/components/ui/sxbt";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
 import Mprojects from "@/components/projects/projects.component";
+import SxButton from "@/components/ui/sxbt";
 
 export default function Home() {
   return (
@@ -38,13 +38,20 @@ export default function Home() {
           </h2>
 
           {/*button*/}
-          <div className="flex flex-row gap-8">
+          <div className="flex flex-row gap-4">
             {siteConfig.bt_hero.map((item) => (
-              <Sxbtn key={item.id} external={item.external} href={item.link}>
+              <SxButton
+                key={item.id}
+                external={item.external}
+                href={item.link}
+                variant={item.variant as "primary" | "secondary"}
+                icon={item.icon}
+              >
                 {item.title}
-              </Sxbtn>
+              </SxButton>
             ))}
           </div>
+
         </div>
         {/* Card and Image */}
         <Card className="relative max-h-fit max-w-fit border-none" radius="sm">

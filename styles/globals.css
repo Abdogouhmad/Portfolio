@@ -40,6 +40,15 @@
   --color-dusty-900: #1a2736;
 }
 
+/* @layer utilities { */
+  /* .card-gradient { */
+    /* background: radial-gradient(circle,rgba(36, 59, 79, 1) 0%, rgba(26, 39, 54, 1) 100%); */
+    /* backdrop-filter: blur(10px); */
+    /* -webkit-backdrop-filter: blur(10px); */
+    /* border: 1px solid rgba(56, 189, 248, 0.1); */
+  /* } */
+/* } */
+
 html {
   background-color: var(--color-custgray-200);
   color: var(--color-custgray-900);
@@ -55,3 +64,4 @@ body {
     background-color 0.3s,
     color 0.3s;
 }
+

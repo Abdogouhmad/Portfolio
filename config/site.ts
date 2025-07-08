@@ -59,14 +59,19 @@ export const siteConfig = {
       title: "View Projects",
       link: "#projects",
       external: false,
+      variant: "primary",
+      icon: true,
     },
     {
       id: 2,
       title: "View Resume",
       link: "https://drive.google.com/drive/folders/1L5TMQ9TtBms1DSXryhB0ESQvVXZL5jrV",
       external: true,
+      variant: "secondary",
+      icon: false,
     },
   ],
+
   services: {
     title1: "Secure. Reliable. Built for Impact.",
     title2:
@@ -75,19 +80,20 @@ export const siteConfig = {
       {
         title: "DevOps & Support",
         sub: "Fast, reliable maintenance using CI/CD pipelines and proven DevOps workflows. I ship hotfixes in hours and roll out stable, feature-rich updates bi-weekly.",
-        icon: "GrVmMaintenance",
+        tags: ["CI/CD", "Infrastructure", "Monitoring"],
       },
       {
         title: "Backend Engineering",
         sub: "Robust APIs and scalable architecture built with modern frameworks. I integrate business logic seamlessly with third-party services and internal systems.",
-        icon: "MdOutlineHttp",
+        tags: ["APIs", "Microservices", "Scalability"],
       },
       {
         title: "Frontend Development",
         sub: "User-first interfaces built with precision. I turn audience insights into polished UIs using modern front-end stacks for performance and accessibility.",
-        icon: "MdOutlineDesignServices",
+        tags: ["React", "Accessibility", "Performance"],
       },
-    ],
+    ]
+
   },
   techs: {
     title: "A Powerful Tech Stack for Real Results",
