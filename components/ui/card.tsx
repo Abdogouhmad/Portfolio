@@ -31,13 +31,13 @@ export default function TheCard({
   return (
     <div className={`relative group transition-all duration-300 ease-in-out hover:-translate-y-2 ${stylecard}`}>
       {/* Glow effect using ::before emulation */}
-      <div className="absolute inset-0 -z-10 rounded-2xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-50"
+      <div className="absolute inset-0 -z-10 rounded-xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-50"
         style={{
           background: "conic-gradient(from 90deg at 50% 50%, #10B981, #3B82F6, #8B5CF6, #EC4899, #F59E0B, #10B981)"
         }}>
       </div>
 
-      <Card className="bg-custgray-200 dark:bg-navycharcoal-900/20 rounded-2xl overflow-hidden flex flex-col h-full shadow-lg transition-transform">
+      <Card className="bg-custgray-200 dark:bg-navycharcoal-900 p-2 rounded-xl border border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 overflow-hidden flex flex-col h-full shadow-lg transition-transform">
         {/* Card Header - Image */}
         <CardHeader className="flex justify-center p-0">
           <Image
@@ -45,7 +45,7 @@ export default function TheCard({
             alt={imgalt}
             width={size.width}
             height={size.height}
-            className="w-full h-48 object-cover"
+            className="w-full h-48 object-cover rounded-xl"
           />
         </CardHeader>
 

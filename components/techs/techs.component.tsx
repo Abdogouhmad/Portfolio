@@ -19,7 +19,6 @@ import {
   SiPrisma,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
-import { Card, CardBody } from "@nextui-org/card";
 
 import { ntype82Headline, ndot47, ntype82Mono } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
@@ -65,7 +64,7 @@ const techStack = [
   },
   { name: "React", icon: SiReact, color: "text-blue-500", level: "Advanced" },
   {
-    name: "Svelt",
+    name: "Svelte",
     icon: SiSvelte,
     color: "text-orange-600",
     level: "Advanced",
@@ -103,9 +102,7 @@ export default function TechSection() {
   return (
     <div className="container mx-auto px-4">
       <div className="mb-10 flex flex-col items-center justify-center gap-6 text-neutral-700 dark:text-neutral-200">
-        <h1
-          className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}
-        >
+        <h1 className={`${ndot47.className} text-center text-4xl font-bold md:text-6xl`}>
           {siteConfig.techs.title}
         </h1>
         <p
@@ -114,45 +111,43 @@ export default function TechSection() {
           {siteConfig.techs.subtitle}
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-5">
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
         {techStack.map((tech) => (
-          <Card
+          <div
             key={tech.name}
-            radius="sm"
-            className="group border-dusty-600 relative overflow-hidden border-1 bg-transparent transition-all duration-300 ease-in-out"
             onMouseEnter={() => setHoveredTech(tech.name)}
             onMouseLeave={() => setHoveredTech(null)}
+            className="group rounded-xl border border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 bg-transparent text-custgray-800 dark:text-custgray-200 p-5 flex flex-col items-center text-center transform transition hover:-translate-y-1"
           >
-            <CardBody className="flex flex-col items-center justify-center px-2 py-10">
+            <motion.div
+              animate={{ scale: hoveredTech === tech.name ? 1.15 : 1 }}
+              initial={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              className={`text-5xl mb-3 ${tech.color}`}
+            >
+              <tech.icon />
+            </motion.div>
+
+            <span className="font-medium text-base">
+              {tech.name}
+            </span>
+
+            {hoveredTech === tech.name && (
               <motion.div
-                animate={{ scale: hoveredTech === tech.name ? 1.2 : 1 }}
-                className={`mb-2 text-4xl ${tech.color}`}
-                initial={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.3 }}
+                className="mt-1"
               >
-                <tech.icon />
-              </motion.div>
-              <p
-                className={`${ndot47.className} text-base text-neutral-600 dark:text-neutral-300`}
-              >
-                {tech.name}
-              </p>
-              {hoveredTech === tech.name && (
-                <motion.div
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute right-0 bottom-2 left-0 flex justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.3 }}
+                <p
+                  className={`${ntype82Mono.className} text-[0.75rem] `}
                 >
-                  <p
-                    className={`${ntype82Mono.className} text-neutural-700 dark:text-neutural-100 text-sm font-semibold`}
-                  >
-                    {tech.level}
-                  </p>
-                </motion.div>
-              )}
-            </CardBody>
-          </Card>
+                  {tech.level}
+                </p>
+              </motion.div>
+            )}
+          </div>
         ))}
       </div>
     </div>
