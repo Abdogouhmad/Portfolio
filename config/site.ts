@@ -1,16 +1,16 @@
 // config/site.ts
+import { StaticImageData } from "next/image";
+
 import minirs from "../public/minirs.png";
 import diwan from "../public/editor.png";
 import conv from "../public/conv.png";
-import { StaticImageData } from "next/image";
-
 
 export type SiteConfig = typeof siteConfig;
 export type ProjectSite = typeof Projectsite;
 
 interface Project {
   iconNames: string[]; // Changed from ReactNode[] to string[]
-  lang: string[],
+  lang: string[];
   img: StaticImageData;
   alt: string;
   title: string;
@@ -92,8 +92,7 @@ export const siteConfig = {
         sub: "User-first interfaces built with precision. I turn audience insights into polished UIs using modern front-end stacks for performance and accessibility.",
         tags: ["React", "Accessibility", "Performance"],
       },
-    ]
-
+    ],
   },
   techs: {
     title: "A Powerful Tech Stack for Real Results",
@@ -104,9 +103,8 @@ export const siteConfig = {
   },
   project: {
     title: "Things I've Built",
-    subtitle: "Scalable and Performant Projects I’ve Engineered"
-  }
-
+    subtitle: "Scalable and Performant Projects I’ve Engineered",
+  },
 };
 
 export const Projectsite: Project[] = [

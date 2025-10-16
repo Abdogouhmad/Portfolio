@@ -1,9 +1,10 @@
 "use client";
 import { Card } from "@nextui-org/card";
+import Image from "next/image";
+
 import { ntype82Mono, ndot47 } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
-import Image from "next/image";
 import me from "@/public/me_blue.png";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
@@ -32,7 +33,7 @@ export default function Home() {
 
           {/* short of me */}
           <h2
-            className={`${ntype82Mono.className} text-neutral-700 dark:text-neutral-300 text-justify text-base`}
+            className={`${ntype82Mono.className} text-justify text-base text-neutral-700 dark:text-neutral-300`}
           >
             {siteConfig.hero.about_me}
           </h2>
@@ -44,8 +45,8 @@ export default function Home() {
                 key={item.id}
                 external={item.external}
                 href={item.link}
-                variant={item.variant as "primary" | "secondary"}
                 icon={item.icon}
+                variant={item.variant as "primary" | "secondary"}
               >
                 {item.title}
               </SxButton>
@@ -54,10 +55,13 @@ export default function Home() {
         </div>
 
         {/* Card and Image */}
-        <Card className="relative max-h-fit max-w-fit border-none bg-transparent" radius="sm">
+        <Card
+          className="relative max-h-fit max-w-fit border-none bg-transparent"
+          radius="sm"
+        >
           <Image
             alt="me"
-            className="min-h-fit object-contain md:min-w-fit md:object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+            className="min-h-fit object-contain grayscale transition-all duration-700 ease-in-out hover:grayscale-0 md:min-w-fit md:object-cover"
             placeholder="blur"
             priority={true}
             quality={100}
@@ -76,7 +80,7 @@ export default function Home() {
       </article>
 
       <div className="h-32" />
-      <hr className="border-neutral-300 dark:border-neutral-800 absolute right-0 left-0 w-screen border-0 border-t" />
+      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-300 dark:border-neutral-800" />
       <div className="h-32" />
 
       {/* techs */}

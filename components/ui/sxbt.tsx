@@ -1,8 +1,9 @@
-import { letteraMono } from "@/config/fonts";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+
+import { letteraMono } from "@/config/fonts";
 
 interface SxButtonProps {
   children: React.ReactNode;
@@ -42,7 +43,7 @@ export default function SxButton({
       variant="flat"
     >
       {children}
-      {icon && <FaArrowRight className="ml-2 mt-[2px]" size={20} />}
+      {icon && <FaArrowRight className="mt-[2px] ml-2" size={20} />}
     </Button>
   );
 }

@@ -24,9 +24,9 @@ import { ndot47 } from "@/config/fonts";
 export const Navbar = () => {
   return (
     <NextUINavbar
+      className="dark:shadow-navycharcoal-700/50 shadow-xl"
       maxWidth="xl"
       position="static"
-      className="dark:shadow-navycharcoal-700/50 shadow-xl"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="max-w-fit gap-3">
@@ -84,12 +84,14 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-    </NextUINavbar >
+    </NextUINavbar>
   );
 };
 
 const SocialMedia = () => {
-  const styledIcon = "text-gray-500 dark:text-gray-400 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]"
+  const styledIcon =
+    "text-gray-500 dark:text-gray-400 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]";
+
   return (
     <>
       <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>

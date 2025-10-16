@@ -2,11 +2,13 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { Analytics } from "@vercel/analytics/next";
+
 import { Providers } from "./providers";
+
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -55,16 +57,9 @@ export default function RootLayout({
                 title="nextui.org homepage"
               >
                 <span className="text-default-600">Powered by</span>
-                <p
-                  className="
-    inline-block font-semibold transition-colors duration-300
-    text-black dark:text-white
-    hover:text-neutral-700 dark:hover:text-neutral-200
-  "
-                >
+                <p className="inline-block font-semibold text-black transition-colors duration-300 hover:text-neutral-700 dark:text-white dark:hover:text-neutral-200">
                   AG
                 </p>
-
               </Link>
             </footer>
           </div>

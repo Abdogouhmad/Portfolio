@@ -11,7 +11,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 import next from "@next/eslint-plugin-next";
 import importPlugin from "eslint-plugin-import";
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
+// * @type {import("eslint").Linter.FlatConfig[]}
 export default [
   {
     ignores: [

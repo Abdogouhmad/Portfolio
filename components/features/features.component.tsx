@@ -12,12 +12,12 @@ export default function ServicesProvided() {
       {/* Section Header */}
       <div className="mb-16 text-center">
         <h2
-          className={`${ndot47.className} text-3xl font-bold text-neutral-800 dark:text-neutral-200 sm:text-4xl md:text-5xl`}
+          className={`${ndot47.className} text-3xl font-bold text-neutral-800 sm:text-4xl md:text-5xl dark:text-neutral-200`}
         >
           {siteConfig.services.title1}
         </h2>
         <p
-          className={`${ntype82Mono.className} mx-auto mt-4 max-w-2xl text-lg font-light text-gray-500 dark:text-gray-400 md:text-xl`}
+          className={`${ntype82Mono.className} mx-auto mt-4 max-w-2xl text-lg font-light text-gray-500 md:text-xl dark:text-gray-400`}
         >
           {siteConfig.services.title2}
         </p>
@@ -31,11 +31,11 @@ export default function ServicesProvided() {
           return (
             <div
               key={index}
-              className="flex flex-col border border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 rounded-xl p-8 shadow-lg transition-transform hover:-translate-y-1"
+              className="border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 flex flex-col rounded-xl border p-8 shadow-lg transition-transform hover:-translate-y-1"
             >
               {/* Icon */}
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full dark:bg-navycharcoal-800 bg-dusty-300">
-                <Icon className="text-3xl dark:text-navycharcoal-400 text-gray-800" />
+              <div className="dark:bg-navycharcoal-800 bg-dusty-300 mb-6 flex h-16 w-16 items-center justify-center rounded-full">
+                <Icon className="dark:text-navycharcoal-400 text-3xl text-gray-800" />
               </div>
 
               {/* Title */}
@@ -57,7 +57,7 @@ export default function ServicesProvided() {
                 {item.tags?.map((tag: string, idx: number) => (
                   <span
                     key={idx}
-                    className="rounded-full bg-dusty-300 px-3 py-1 text-xs font-medium text-gray-800 dark:bg-navycharcoal-700 dark:text-navycharcoal-300"
+                    className="bg-dusty-300 dark:bg-navycharcoal-700 dark:text-navycharcoal-300 rounded-full px-3 py-1 text-xs font-medium text-gray-800"
                   >
                     {tag}
                   </span>
