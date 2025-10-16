@@ -46,7 +46,7 @@ export const Navbar = () => {
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   `${ndot47.className} relative inline-block text-lg transition-all duration-700`,
-                  "hover:from-dusty-400 hover:to-dusty-600 hover:bg-linear-to-r hover:bg-clip-text hover:text-transparent",
+                  "hover:from-dusty-400 hover:to-dusty-700 hover:bg-linear-to-r hover:bg-clip-text hover:text-transparent",
                 )}
                 href={item.href}
               >
@@ -89,7 +89,7 @@ export const Navbar = () => {
 };
 
 const SocialMedia = () => {
-  const styledIcon = "text-custgray-800 dark:text-custgray-500 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]"
+  const styledIcon = "text-gray-500 dark:text-gray-400 h-[20px] w-[20px] lg:h-[24px] lg:w-[24px]"
   return (
     <>
       <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>

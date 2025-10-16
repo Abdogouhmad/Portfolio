@@ -34,8 +34,8 @@ export default function ServicesProvided() {
               className="flex flex-col border border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 rounded-xl p-8 shadow-lg transition-transform hover:-translate-y-1"
             >
               {/* Icon */}
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full dark:bg-navycharcoal-800 bg-dusty-300/50">
-                <Icon className="text-3xl dark:text-navycharcoal-400 text-dusty-400" />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full dark:bg-navycharcoal-800 bg-dusty-300">
+                <Icon className="text-3xl dark:text-navycharcoal-400 text-gray-800" />
               </div>
 
               {/* Title */}
@@ -57,7 +57,7 @@ export default function ServicesProvided() {
                 {item.tags?.map((tag: string, idx: number) => (
                   <span
                     key={idx}
-                    className="rounded-full bg-dusty-300/50 px-3 py-1 text-xs font-medium text-dusty-700 dark:bg-navycharcoal-700 dark:text-navycharcoal-300"
+                    className="rounded-full bg-dusty-300 px-3 py-1 text-xs font-medium text-gray-800 dark:bg-navycharcoal-700 dark:text-navycharcoal-300"
                   >
                     {tag}
                   </span>
