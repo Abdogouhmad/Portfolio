@@ -24,7 +24,7 @@ import { ndot47 } from "@/config/fonts";
 export const Navbar = () => {
   return (
     <NextUINavbar
-      className="dark:shadow-navycharcoal-700/50 shadow-xl"
+      className="shadow-black/5 shadow-md"
       maxWidth="xl"
       position="static"
     >
