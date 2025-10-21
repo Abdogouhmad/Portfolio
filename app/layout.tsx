@@ -49,7 +49,7 @@ export default function RootLayout({
               <Analytics />
               {children}
             </main>
-            <footer className="flex w-full items-center justify-center border-t border-neutral-700 py-3 dark:border-neutral-600">
+            <footer className="flex w-full items-center justify-center ">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"

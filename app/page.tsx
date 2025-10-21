@@ -80,7 +80,7 @@ export default function Home() {
       </article>
 
       <div className="h-32" />
-      <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-300 dark:border-neutral-800" />
+      {/* <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-300 dark:border-neutral-800" /> */}
       <div className="h-32" />
 
       {/* techs */}

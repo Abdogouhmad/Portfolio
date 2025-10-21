@@ -23,9 +23,9 @@ export default function SxButton({
   icon = false,
   ...props
 }: SxButtonProps) {
-  const baseStyles = `${letteraMono.className} px-6 py-3 text-base font-medium flex items-center transition-all duration-300 rounded-lg`;
+  const baseStyles = `${letteraMono.className} px-6 py-3 text-base flex items-center transition-all duration-300 rounded-lg`;
 
-  const primaryStyles = `bg-dusty-500 text-white hover:bg-dusty-600`;
+  const primaryStyles = `bg-dusty-500 text-gray-700  hover:bg-dusty-600`;
   const secondaryStyles = `border border-dusty-500 dark:text-dusty-300 hover:bg-dusty-900 text-custgray-900`;
 
   const finalClass =
