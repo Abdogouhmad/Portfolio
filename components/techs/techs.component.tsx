@@ -20,7 +20,7 @@ import {
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 
-import { ntype82Headline, ndot47, ntype82Mono } from "@/config/fonts";
+import { ntype82Headline, ndot47 } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 const techStack = [
@@ -140,7 +140,7 @@ export default function TechSection() {
                 initial={{ opacity: 0, y: 8 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className={`${ntype82Mono.className} text-[0.75rem]`}>
+                <p className="text-[0.75rem]">
                   {tech.level}
                 </p>
               </motion.div>

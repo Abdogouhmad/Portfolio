@@ -44,9 +44,7 @@ export const siteConfig = {
     big_one: "Put your business in",
     big_two: "hands and grow for a brighter tomorrow.",
     fliped: ["trusted", "skilled"],
-    about_me:
-      "Hey, I'm Abderrahman Gouhmad 👋 a creative developer crafting sleek web & mobile apps with TypeScript, Rust, Next.js, Flutter & Tailwind CSS 🚀. My journey from linguistics to code fuels my passion for intuitive, user-centric solutions and puzzle-like problem-solving 🧩. Let's team up to bring your digital ideas to life and make a real impact 💡!",
-  },
+  "about_me": "I'm Abderrahman Gouhmad, a creative developer specializing in building elegant web and mobile applications using TypeScript, Rust, Next.js, Flutter, and Tailwind CSS. My background in linguistics has shaped my approach to development, driving my commitment to creating intuitive, user-centric solutions and solving complex technical challenges. I'm passionate about collaborating on innovative digital projects that deliver meaningful results."  },
   my_info: {
     name: "Abderrahman Gouhmad",
     hubbies: ["Reading", "Workout", "Biking", "Writing"],

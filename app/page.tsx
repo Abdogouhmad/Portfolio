@@ -2,10 +2,10 @@
 import { Card } from "@nextui-org/card";
 import Image from "next/image";
 
-import { ntype82Mono, ndot47 } from "@/config/fonts";
+import { ndot47, ntype82Mono } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { FlipWords } from "@/components/ui/flip-words";
-import me from "@/public/me_blue.png";
+import me from "@/public/abdo1.jpg";
 import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
 import Mprojects from "@/components/projects/projects.component";
@@ -53,22 +53,39 @@ export default function Home() {
             ))}
           </div>
         </div>
+        {/* Card and Image */}
+        <div className="flex items-center justify-center w-full">
+          <Card
+            className="relative w-full max-w-sm border-none bg-transparent shadow-none"
+            radius="sm"
+          >
+            <div className="relative w-full h-[350px] md:h-[450px]">
+              <Image
+                alt="me"
+                src={me}
+                fill
+                placeholder="blur"
+                quality={100}
+                className="object-cover object-center rounded-xl grayscale transition-all duration-700 ease-in-out hover:grayscale-0"
+              />
+            </div>
+          </Card>
+        </div>
 
         {/* Card and Image */}
-        <Card
-          className="relative max-h-fit max-w-fit border-none bg-transparent"
-          radius="sm"
-        >
-          <Image
-            alt="me"
-            className="min-h-fit object-contain grayscale transition-all duration-700 ease-in-out hover:grayscale-0 md:min-w-fit md:object-cover"
-            placeholder="blur"
-            priority={true}
-            quality={100}
-            src={me}
-            width={400}
-          />
-        </Card>
+        {/*   <Card */}
+        {/*     className="relative max-h-fit max-w-fit border-none bg-transparent" */}
+        {/*     radius="sm" */}
+        {/*   > */}
+        {/*     <Image */}
+        {/*       alt="me" */}
+        {/*       className="min-h-fit object-center grayscale transition-all duration-700 ease-in-out hover:grayscale-0 md:min-w-fit md:object-cover" */}
+        {/*       placeholder="blur" */}
+        {/*       quality={100} */}
+        {/*       src={me} */}
+        {/*       width={400} */}
+        {/*     /> */}
+        {/*   </Card> */}
       </article>
 
       {/* spacing */}
