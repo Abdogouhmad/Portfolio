@@ -3,9 +3,7 @@ import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import { Analytics } from "@vercel/analytics/next";
-
 import { Providers } from "./providers";
-
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -37,6 +35,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head />
       <body
+        suppressHydrationWarning
         className={clsx(
           "min-h-screen font-sans antialiased",
           fontSans.variable,
@@ -46,10 +45,9 @@ export default function RootLayout({
           <div className="relative flex h-screen flex-col">
             <Navbar />
             <main className="container mx-auto max-w-7xl grow px-6 pt-10 pb-20">
-              <Analytics />
               {children}
             </main>
-            <footer className="flex w-full items-center justify-center ">
+            <footer className="flex w-full items-center justify-center py-3">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
@@ -64,6 +62,7 @@ export default function RootLayout({
             </footer>
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
