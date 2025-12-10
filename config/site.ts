@@ -2,8 +2,8 @@
 import { StaticImageData } from "next/image";
 
 import minirs from "../public/minirs.png";
-import diwan from "../public/editor.png";
-import conv from "../public/conv.png";
+import rcn from "../public/rcn.png";
+import outiplus from "../public/outi.png";
 
 export type SiteConfig = typeof siteConfig;
 export type ProjectSite = typeof Projectsite;
@@ -44,7 +44,8 @@ export const siteConfig = {
     big_one: "Put your business in",
     big_two: "hands and grow for a brighter tomorrow.",
     fliped: ["trusted", "skilled"],
-  "about_me": "I'm Abderrahman Gouhmad, a creative developer specializing in building elegant web and mobile applications using TypeScript, Rust, Next.js, Flutter, and Tailwind CSS. My background in linguistics has shaped my approach to development, driving my commitment to creating intuitive, user-centric solutions and solving complex technical challenges. I'm passionate about collaborating on innovative digital projects that deliver meaningful results."  },
+    "about_me": "I'm Abderrahman Gouhmad, a creative developer specializing in building elegant web and mobile applications using TypeScript, Rust, Next.js, Flutter, and Tailwind CSS. My background in linguistics has shaped my approach to development, driving my commitment to creating intuitive, user-centric solutions and solving complex technical challenges. I'm passionate about collaborating on innovative digital projects that deliver meaningful results."
+  },
   my_info: {
     name: "Abderrahman Gouhmad",
     hubbies: ["Reading", "Workout", "Biking", "Writing"],
@@ -109,11 +110,11 @@ export const Projectsite: Project[] = [
   {
     iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
     lang: ["Rust", "Toml"],
-    img: diwan,
-    alt: "Diwan Editor",
-    title: "Diwan",
+    img: rcn,
+    alt: "rcn",
+    title: "RCN",
     description:
-      "A lightweight, Rust-based text editor focused on performance and minimal resource usage.",
+      "rcn is a Rust-based CLI tool designed to assist React and Next.js developers using TypeScript by automating the creation of model components, services, and types.",
   },
   {
     iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
@@ -125,12 +126,12 @@ export const Projectsite: Project[] = [
       "A minimal and configurable HTTP server built with Rust, leveraging a simple config.toml for setup.",
   },
   {
-    iconNames: ["FaRust", "SiToml"], // Using string instead of JSX
-    lang: ["Rust", "Toml"],
-    img: conv,
-    alt: "HTML To PDF converter",
-    title: "RST-Converter",
+    iconNames: ["RiNextjsLine", "BiLogoTypescript"], // Using string instead of JSX
+    lang: ["Nextjs", "Typescript"],
+    img: outiplus,
+    alt: "landing page of the website",
+    title: "Outiplus",
     description:
-      "A fast and efficient Rust CLI tool that converts HTML to PDF with minimal system resource consumption.",
+      "outiplus is a lending page that presents the company info",
   },
 ];

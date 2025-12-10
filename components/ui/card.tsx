@@ -1,4 +1,3 @@
-// components/ui/card.tsx
 import { Card, CardHeader, CardBody, CardFooter, Chip } from "@heroui/react";
 import Image, { StaticImageData } from "next/image";
 import { IconType } from "react-icons";
@@ -9,8 +8,9 @@ interface CardProps {
   langs: string[];
   iconame: IconType[];
   stylecard?: string;
-  img: StaticImageData;
+  img: StaticImageData | string; // Updated to allow string URLs too
   imgalt: string;
+  // Size is less relevant for responsive images using 'fill', but kept for compatibility
   size?: {
     width: number;
     height: number;
@@ -25,26 +25,35 @@ export default function TheCard({
   stylecard = "",
   img,
   imgalt,
-  size = { width: 100, height: 100 },
   title,
   description = "",
 }: CardProps) {
   return (
     <div
-      className={`group relative transition-all duration-300 ease-in-out hover:-translate-y-2 ${stylecard}`}
+      className={`group relative h-full transition-all duration-300 ease-in-out hover:-translate-y-2 ${stylecard}`}
     >
-      {/* Glow effect using ::before emulation */}
+      {/* Glow effect */}
       <div className="absolute inset-0 -z-10 rounded-xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-50" />
 
-      <Card className="bg-custgray-200 dark:bg-navycharcoal-900 border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 flex h-full flex-col overflow-hidden rounded-xl border p-2 shadow-lg transition-transform">
-        {/* Card Header - Image */}
-        <CardHeader className="flex justify-center p-0">
+      <Card className="bg-custgray-200 dark:bg-navycharcoal-900 border-custgray-800/50 dark:border-navycharcoal-800/50 dark:hover:border-dusty-600/50 hover:border-dusty-600 flex h-full w-full flex-col overflow-hidden rounded-xl border p-2 shadow-lg transition-transform">
+
+        {/* Card Header - Image Container */}
+        {/* Added 'relative' and 'overflow-hidden' for correct Next.js Image filling */}
+        <CardHeader className="relative w-full p-0 overflow-hidden h-52 sm:h-60">
           <Image
             alt={imgalt}
-            className="h-48 w-full rounded-xl object-cover"
-            height={size.height}
             src={img}
-            width={size.width}
+            fill // This makes the image fill the container absolutely
+            priority={false} // Set to true if these cards are "above the fold"
+            quality={95} // High quality setting
+            // 'sizes' ensures the browser downloads the high-res version on large screens
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{
+              // Optional: prevents blurriness during scaling animation
+              backfaceVisibility: "hidden",
+              WebkitFontSmoothing: "antialiased"
+            }}
           />
         </CardHeader>
 
@@ -54,12 +63,13 @@ export default function TheCard({
             {title}
           </h2>
           {description && (
-            <p className="flex-grow text-left text-gray-400">{description}</p>
+            <p className="flex-grow text-left text-gray-500 dark:text-gray-400">
+              {description}
+            </p>
           )}
         </CardBody>
-
         {/* Card Footer */}
-        <CardFooter className="flex flex-wrap gap-2 px-6 pb-6">
+        <CardFooter className="flex flex-wrap gap-2 px-6 pb-6 mt-auto">
           {iconame.map((Icon, index) => (
             <Chip
               key={index}
