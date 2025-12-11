@@ -64,10 +64,11 @@ export const siteConfig = {
     {
       id: 2,
       title: "View Resume",
-      link: "https://drive.google.com/drive/folders/1L5TMQ9TtBms1DSXryhB0ESQvVXZL5jrV",
-      external: true,
+      link: "/A_Gouhmad.pdf",
+      external: false,
       variant: "secondary",
       icon: false,
+      donwload: true
     },
   ],
 
