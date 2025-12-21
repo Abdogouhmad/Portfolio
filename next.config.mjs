@@ -8,7 +8,7 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   // reactStrictMode: true,
   images: {
-    qualities: [100, 25, 50, 75],
+    qualities: [100, 25, 50, 75, 95],
   },
 };
 export default nextConfig;

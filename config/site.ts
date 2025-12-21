@@ -17,6 +17,14 @@ interface Project {
   description: string;
 }
 
+interface stackType {
+  name: string;
+  icon: string;
+  color: string;
+  level: string;
+}
+
+
 export const siteConfig = {
   name: "AG",
   description: "Welcome to my personal portfolio.",
@@ -134,5 +142,98 @@ export const Projectsite: Project[] = [
     title: "Outiplus",
     description:
       "outiplus is a lending page that presents the company info",
+  },
+];
+
+export const techStack: stackType[] = [
+  {
+    name: "Rust",
+    icon: "SiRust",
+    color: "text-orange-600",
+    level: "Intermediate",
+  },
+  {
+    name: "TypeScript",
+    icon: "SiTypescript",
+    color: "text-blue-600",
+    level: "Advanced",
+  },
+  {
+    name: "Dart",
+    icon: "SiDart",
+    color: "text-cyan-500",
+    level: "Intermediate",
+  },
+  {
+    name: "JavaScript",
+    icon: "SiJavascript",
+    color: "text-yellow-400",
+    level: "Advanced",
+  },
+  {
+    name: "Node.js",
+    icon: "SiNodedotjs",
+    color: "text-green-500",
+    level: "Advanced",
+  },
+  {
+    name: "Python",
+    icon: "SiPython",
+    color: "text-blue-500",
+    level: "Advanced",
+  },
+  {
+    name: "Bash",
+    icon: "SiGnubash",
+    color: "text-neutral-500",
+    level: "Advanced",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "SiTailwindcss",
+    color: "text-cyan-400",
+    level: "Advanced",
+  },
+  {
+    name: "React",
+    icon: "SiReact",
+    color: "text-blue-500",
+    level: "Advanced",
+  },
+  {
+    name: "Svelte",
+    icon: "SiSvelte",
+    color: "text-orange-600",
+    level: "Advanced",
+  },
+  {
+    name: "Next.js",
+    icon: "SiNextdotjs",
+    color: "text-black dark:text-white",
+    level: "Advanced",
+  },
+  {
+    name: "Git",
+    icon: "SiGit",
+    color: "text-red-500",
+    level: "Advanced",
+  },
+  {
+    name: "AWS",
+    icon: "FaAws",
+    color: "text-black dark:text-white",
+    level: "Intermediate",
+  },
+  {
+    name: "Docker",
+    icon: "SiDocker",
+    color: "text-blue-600",
+    level: "Intermediate",
+  },
+  {
+    name: "Prisma",
+    icon: "SiPrisma",
+    color: "text-neutral-500",
+    level: "Advanced",
   },
 ];
