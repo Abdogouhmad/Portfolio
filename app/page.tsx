@@ -30,7 +30,6 @@ export default function Home() {
             </span>
             {siteConfig.hero.big_two}
           </h1>
-
           {/* short of me */}
           <h2
             className={`${ntype82Mono.className} text-justify text-base text-neutral-700 dark:text-neutral-300`}
@@ -71,21 +70,6 @@ export default function Home() {
             </div>
           </Card>
         </div>
-
-        {/* Card and Image */}
-        {/*   <Card */}
-        {/*     className="relative max-h-fit max-w-fit border-none bg-transparent" */}
-        {/*     radius="sm" */}
-        {/*   > */}
-        {/*     <Image */}
-        {/*       alt="me" */}
-        {/*       className="min-h-fit object-center grayscale transition-all duration-700 ease-in-out hover:grayscale-0 md:min-w-fit md:object-cover" */}
-        {/*       placeholder="blur" */}
-        {/*       quality={100} */}
-        {/*       src={me} */}
-        {/*       width={400} */}
-        {/*     /> */}
-        {/*   </Card> */}
       </article>
 
       {/* spacing */}
@@ -96,8 +80,6 @@ export default function Home() {
         <ServicesProvided />
       </article>
 
-      <div className="h-32" />
-      {/* <hr className="absolute right-0 left-0 w-screen border-0 border-t border-neutral-300 dark:border-neutral-800" /> */}
       <div className="h-32" />
 
       {/* techs */}
