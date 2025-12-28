@@ -8,14 +8,15 @@ export default function MContact() {
 
     return (
         <div className="space-y-6" id="contact">
+            {/* title */}
             <div className="mb-16 text-center">
                 <h1 className={`${ndot47.className} text-5xl font-bold tracking-wider`}>
-                    {/* {siteConfig.project.title} */}
                     Get in Touch
                 </h1>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 place-items-center">
+            {/* icons */}
+            <div className="grid grid-cols-4 gap-6 place-items-center">
                 {contactLinks.map((item) => {
                     const Icon = iconsContact[item.iconName];
 
