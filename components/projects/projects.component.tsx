@@ -7,7 +7,7 @@ import { ndot47, ntype82Headline } from "@/config/fonts";
 
 export default function Mprojects() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-16" id="project">
       <div className="mb-16 text-center">
         <h1 className={`${ndot47.className} text-5xl font-bold tracking-wider`}>
           {siteConfig.project.title}

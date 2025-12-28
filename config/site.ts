@@ -64,7 +64,7 @@ export const siteConfig = {
     {
       id: 1,
       title: "View Projects",
-      link: "#projects",
+      link: "#project",
       external: false,
       variant: "primary",
       icon: true,
@@ -237,3 +237,32 @@ export const techStack: stackType[] = [
     level: "Advanced",
   },
 ];
+
+interface contactType {
+  name: string;
+  iconName: string;
+  href: string;
+}
+
+export const contactLinks: contactType[] = [
+  {
+    name: "Outlook",
+    iconName: "MdEmail",
+    href: "mailto: gouhmad@hotmail.com",
+  },
+  {
+    name: "WhatsApp",
+    iconName: "BsWhatsapp",
+    href: "https://wa.me/+212666123158",
+  },
+  {
+    name: "LinkedIn",
+    iconName: "FaLinkedin",
+    href: "https://www.linkedin.com/in/abdogouhmad/",
+  },
+  {
+    name: "Threads",
+    iconName: "BsFillThreadsFill",
+    href: "https://www.threads.com/@3bdo_0212",
+  },
+];  

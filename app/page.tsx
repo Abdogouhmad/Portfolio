@@ -10,6 +10,7 @@ import ServicesProvided from "@/components/features/features.component";
 import TechSection from "@/components/techs/techs.component";
 import Mprojects from "@/components/projects/projects.component";
 import SxButton from "@/components/ui/sxbt";
+import MContact from "@/components/contact/contact.component";
 
 export default function Home() {
   return (
@@ -90,6 +91,11 @@ export default function Home() {
       <div className="h-32" />
       <article>
         <Mprojects />
+      </article>
+      {/* contact */}
+      <div className="h-32" />
+      <article>
+        <MContact />
       </article>
     </section>
   );

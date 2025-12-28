@@ -23,6 +23,7 @@ import { SiToml } from "react-icons/si";
 import { RiNextjsLine } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
 
+
 export const iconMap: Record<string, IconType> = {
   FaRust,
   SiToml,
@@ -47,3 +48,15 @@ export const iconsStack: Record<string, IconType> = {
   SiPrisma,
   FaAws
 }
+import { BsWhatsapp } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa";
+import { BsFillThreadsFill } from "react-icons/bs";
+
+export const iconsContact: Record<string, IconType> = {
+  // wtsp, mail, linkedin, thread, X
+  BsWhatsapp,
+  MdEmail,
+  FaLinkedin,
+  BsFillThreadsFill
+};
