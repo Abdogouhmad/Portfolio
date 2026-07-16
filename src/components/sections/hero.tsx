@@ -93,7 +93,7 @@ export function Hero() {
           {/* Socials & Resume */}
           <motion.div variants={itemVariants} className="flex items-center gap-5 pt-4 border-t border-border/60 w-full max-w-xs justify-center text-muted-foreground">
             <a
-              href="https://github.com/abderrahmanbenani"
+              href="https://github.com/Abdogouhmad"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -102,7 +102,7 @@ export function Hero() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/abderrahman-gouhmad"
+              href="https://www.linkedin.com/in/abdogouhmad/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -111,7 +111,7 @@ export function Hero() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:abderrahman@gouhmad.com"
+              href="mailto:gouhmad@hotmail.com"
               className="hover:text-foreground transition-colors"
               title="Email"
             >
@@ -119,7 +119,7 @@ export function Hero() {
             </a>
             <span className="h-4 w-px bg-border" />
             <a
-              href="#"
+              href="../../../public/resume.pdf"
               className="inline-flex items-center gap-1 hover:text-foreground transition-colors text-sm font-medium"
               title="Download Resume"
             >
