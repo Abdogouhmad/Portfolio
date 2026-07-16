@@ -1,0 +1,30 @@
+---
+title: "Why Rust is the Ultimate Language for Developer Tooling"
+description: "An in-depth look at how Rust's safety guarantees, rich type system, and static compilation make it the ideal choice for building CLI tools like ltx."
+publishedAt: "July 12, 2026"
+readingTime: "5 min read"
+tags:
+  - Rust
+  - DevTools
+  - Systems Programming
+---
+
+Historically, developer tools were written in Perl, Bash, C, or Python. But recently, a massive shift has happened. Tools like Turborepo, SWC, Ruff, and our own `ltx` LaTeX manager are being written in Rust. Why?
+
+### 1. Speed and Low Overhead
+
+Developer tooling must get out of the way. If a build tool takes 3 seconds to spin up and check dependencies, it breaks the developer's flow. Rust compiles to native code with no garbage collector, meaning startup times are in the single-digit milliseconds. 
+
+In `ltx`, compiling document dependency trees is instant, allowing watch-mode rebuilds to trigger the millisecond you hit save.
+
+### 2. Single Binary Distribution
+
+Python and Node.js command-line tools are notorious for environment breakages. A user updates their Node version or installs a conflicting python package, and their CLI crashes. 
+
+Rust compiles down to a single statically-linked binary. You can ship it to Linux, macOS, or Windows, and it just runs without any runtime dependencies.
+
+### 3. Fearless Concurrency
+
+Developer tools frequently perform IO-bound operations: scanning folders, compiling multiple files, or querying registries. Rust's borrow checker prevents data races at compile time. This makes implementing multi-threaded compilers or concurrent file-watchers incredibly safe.
+
+For instance, in `ltx`, we run independent bibliography passes in parallel to our primary compilation passes safely, knowing there will be no race conditions on output files.
