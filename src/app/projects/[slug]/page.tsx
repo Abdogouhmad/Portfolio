@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ExternalLink, Cpu, Terminal, Compass } from "lucide-react"
 import { GithubIcon as Github } from "@/components/shared/icons"
-import { projects } from "@/data/portfolio"
+import { projects, projectStatusConfig } from "@/data/portfolio"
 import { Markdown } from "@/components/shared/markdown"
 
 interface ProjectPageProps {
@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               {project.title}
             </h1>
-            
+
             {/* Links */}
             <div className="flex items-center gap-4">
               <a
@@ -101,8 +101,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 Status
               </span>
               <span className="inline-flex items-center gap-1.5 text-sm text-foreground font-medium">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                Production-Ready
+                <span className={`h-2 w-2 rounded-full ${projectStatusConfig[project.status].color}`} />
+                {projectStatusConfig[project.status].label}
               </span>
             </div>
           </div>

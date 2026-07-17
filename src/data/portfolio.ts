@@ -1,3 +1,12 @@
+export type ProjectStatus = "done" | "in_progress" | "not_started" | "blocked";
+
+export const projectStatusConfig: Record<ProjectStatus, { label: string; color: string }> = {
+  done: { label: "Done", color: "bg-green-500" },
+  in_progress: { label: "In Progress", color: "bg-orange-500" },
+  not_started: { label: "Not Started", color: "bg-gray-400" },
+  blocked: { label: "Blocked", color: "bg-red-500" },
+};
+
 export interface Project {
   id: string;
   slug: string;
@@ -9,6 +18,7 @@ export interface Project {
   github: string;
   demo?: string;
   featured: boolean;
+  status: ProjectStatus;
   challenges: string;
   lessons: string;
   architecture: string;
@@ -32,37 +42,16 @@ export interface SkillCategory {
 
 export const experiences: Experience[] = [
   {
-    company: "Systemic Labs",
-    role: "Senior Systems Engineer",
-    duration: "2024 — Present",
+    company: "Metave",
+    role: "Full Stack Developer",
+    duration: "May 2024 — Oct 2024",
     description: [
-      "Designed and implemented high-throughput network daemons in Rust, optimizing CPU cache layouts and reducing p99 latency by 35%.",
-      "Created internal developer tooling and CLI utilities to streamline build-and-deploy pipelines for CachyOS and Arch Linux target environments.",
-      "Developed kernel-space interfaces and custom eBPF probes for real-time observability of memory allocations and network traffic."
+      "Built SaaS application using Next.js, Node.js, and Express.js.",
+      "Developed RESTful APIs and intergrating a serverless function with AWS for efficient data handling.",
+      "Created responsive user interfaces with Tailwind CSS."
     ],
-    technologies: ["Rust", "Linux Systems", "eBPF", "Docker", "REST APIs", "Cargo"]
+    technologies: ["NextJs", "Linux Systems", "Terraform", "Docker", "REST APIs", "AWS", "TypeScript"]
   },
-  {
-    company: "CoreTech Solutions",
-    role: "Software Developer",
-    duration: "2022 — 2024",
-    description: [
-      "Built performant REST and WebSocket APIs using Actix-web and Axum, supporting 10k+ concurrent connections.",
-      "Maintained and optimized legacy backend systems, migrating performance-critical routes from Python to Rust.",
-      "Set up robust CI/CD pipelines using GitHub Actions, reducing build times by caching Cargo workspaces efficiently."
-    ],
-    technologies: ["Rust", "TypeScript", "Actix", "Axum", "PostgreSQL", "Docker", "Git"]
-  },
-  {
-    company: "Open Source Maintainer",
-    role: "Developer & Contributor",
-    duration: "2021 — Present",
-    description: [
-      "Created and maintained 'ltx', an extremely fast LaTeX project manager in Rust that resolves document compile graphs.",
-      "Contributed optimizations and bug fixes to core Rust libraries and developer tools in the crates.io ecosystem."
-    ],
-    technologies: ["Rust", "Cargo", "LaTeX", "Git", "Linux"]
-  }
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -72,23 +61,23 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Web & Frontend",
-    skills: ["Next.js", "React", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion"]
+    skills: ["Next.js", "React", "HTML5", "Tailwind CSS", "Framer Motion", "Svelt", "SveltKit"]
   },
   {
     category: "Backend & Systems",
-    skills: ["Axum", "Actix-web", "REST APIs", "WebSockets", "Tokio", "eBPF"]
+    skills: ["Axum", "Actix-web", "REST APIs", "WebSockets", "Tokio", "ExpressJs"]
   },
   {
     category: "Tooling & Infrastructure",
-    skills: ["Cargo", "Git", "Docker", "CI/CD (GitHub Actions)", "Justfile"]
+    skills: ["Cargo", "Git", "Docker", "CI/CD (GitHub Actions)", "Justfile", "Terraform"]
   },
   {
     category: "Operating Systems",
-    skills: ["Linux", "Arch Linux", "CachyOS", "POSIX Systems"]
+    skills: ["Linux", "Arch Linux", "CachyOS", "POSIX Systems", "Niri", "Hyprland"]
   },
   {
     category: "Editors & Workflow",
-    skills: ["Helix", "VS Code", "Neovim"]
+    skills: ["Helix", "VS Code", "Neovim", "Zed"]
   }
 ];
 
@@ -97,13 +86,14 @@ export const projects: Project[] = [
     id: "ltx",
     slug: "ltx",
     title: "ltx",
-    description: "An extremely fast LaTeX project manager written in Rust. It resolves document dependency graphs and handles multi-pass compilation automatically.",
+    description: "An extremely fast LaTeX project manager written in Rust. It handles multi-pass compilation automatically.",
     longDescription: "ltx treats LaTeX documents like modern software codebases, featuring incremental builds, automatic bibtex/biber resolution, and a tight write-compile-preview watch mode loop.",
-    image: "/images/projects/ltx-logo.svg",
+    image: "/images/projects/ltx-logo.png",
     technologies: ["Rust", "LaTeX", "Cargo", "POSIX", "CI/CD"],
-    github: "https://github.com/abderrahmanbenani/ltx",
+    github: "https://github.com/Abdogouhmad/ltx",
     demo: "",
     featured: true,
+    status: "in_progress",
     challenges: "Parsing LaTeX source code files for active inputs, package imports, and bibliography references to construct a reliable, cyclic-free dependency graph. Ensuring compilation terminates correctly even when LaTeX throws errors or warnings.",
     lessons: "Learned the details of LaTeX compiler engines (pdflatex, xelatex, lualatex) and auxiliary tool flows (biber, makeindex). Gained deeper experience in asynchronous process handling and file system monitoring in Rust.",
     architecture: `
@@ -152,94 +142,74 @@ Most LaTeX workflows are stitched together from shell scripts, \`latexmk\`, and 
 `
   },
   {
-    id: "sysinfo-tui",
-    slug: "sysinfo-tui",
-    title: "sysinfo-tui",
-    description: "A lightweight terminal user interface for real-time system monitoring, written in Rust using Ratatui.",
-    longDescription: "A highly customizable system monitor displaying CPU usage per core, memory usage, disk I/O, network traffic, running processes, and temperature sensors with negligible resource overhead.",
-    image: "/images/projects/sysinfo-tui.svg",
-    technologies: ["Rust", "Ratatui", "Crossterm", "Sysinfo"],
-    github: "https://github.com/abderrahmanbenani/sysinfo-tui",
+    id: "Walt",
+    slug: "Walt",
+    title: "Walt",
+    description: "A modern, offline-first personal finance tracker built with Flutter for Android.",
+    longDescription: "A clean, offline-first personal finance tracker built with Flutter for Android. Track expenses & income, manage budgets, view beautiful charts, export reports, and automatically capture Google Pay transactions.",
+    image: "/images/projects/walt-logo.png",
+    technologies: ["Dart", "Flutter", "SQLite", "Hive", "Riverpod", "fl_chart", "Freezed"],
+    github: "https://github.com/Abdogouhmad/walt",
     demo: "",
     featured: true,
-    challenges: "Updating terminal cells at high frequency (60fps) without hogging CPU cores or introducing visual flickering. Handling terminal resize events gracefully while maintaining correct grid layouts.",
-    lessons: "Mastered double-buffering layouts in Ratatui and optimized system information polling using background threads to prevent blocking the UI render loop.",
-    architecture: `
-+------------------+     +-------------------+
-| System Collector | --> | Polling Thread    |
-| (sysinfo crate)  |     | (1s interval)     |
-+------------------+     +-------------------+
-                                   |
-                                   v
-+------------------+     +-------------------+
-| Ratatui UI Loop  | <-- | IPC Event Channel |
-| (60fps redraw)   |     |                   |
-+------------------+     +-------------------+
-`,
-    content: `
-### Overview
-
-\`sysinfo-tui\` is a fast, terminal-based dashboard that provides real-time stats of your system resources. It is designed to be lightweight, running as a background utility or a standalone monitor.
-
-### Key Features
-
-- **Multi-core CPU Chart**: Shows live utilization graphs for each core.
-- **Process Manager**: Sort processes by CPU, memory, pid, or name, with support for killing processes from the TUI.
-- **Network Interface Monitor**: Tracks RX/TX rates in real time.
-- **Temperature & Fan Speed**: Integrated sensor logging (helpful for CachyOS / performance tweaking).
-- **Minimal Footprint**: Uses less than 15MB of RAM and < 1% CPU.
-`
-  },
-  {
-    id: "rsh",
-    slug: "rsh",
-    title: "rsh",
-    description: "A minimal, POSIX-compliant command-line shell written in Rust for UNIX systems programming research.",
-    longDescription: "A pedagogical shell implemented in Rust to study system calls, signal handling, job control, pipeline redirection, and terminal interfaces.",
-    image: "/images/projects/rsh.svg",
-    technologies: ["Rust", "Nix", "POSIX", "Systems Programming"],
-    github: "https://github.com/abderrahmanbenani/rsh",
-    demo: "",
-    featured: false,
-    challenges: "Properly managing process groups, controlling terminals, and handling signals like SIGINT and SIGTSTP to prevent the parent shell from crashing when background tasks are suspended or killed.",
-    lessons: "Deepened knowledge of UNIX system calls (\`fork\`, \`execve\`, \`dup2\`, \`pipe\`, \`setpgid\`). Gained appreciation for how shells manage subprocess lifecycles safely.",
+    status: "done",
+    challenges: "Designing an offline-first architecture that keeps data consistent across SQLite and Hive caches while supporting real-time chart updates and background notification scheduling for budget alerts.",
+    lessons: "Gained deep experience with Flutter state management using Riverpod, learned to architect clean separation between data, domain, and UI layers, and understood the trade-offs between local databases for mobile apps.",
     architecture: `
 +-------------------------------------------------+
-|               Read-Eval-Print Loop              |
+|                   Walt App                      |
 +-------------------------------------------------+
-                        |
-                        v
+        |                   |                |
+        v                   v                v
++----------------+ +----------------+ +----------------+
+|  Presentation  | |   Providers    | |    Shared      |
+|  (Features)    | |   (Riverpod)  | |   Widgets      |
++----------------+ +----------------+ +----------------+
+        |                   |                |
+        +---------+---------+----------------+
+                  |
+                  v
 +-------------------------------------------------+
-|             Parser & AST Generator              |
-|  - Handles redirections (>, <, 2>)              |
-|  - Resolves pipelines (cmd1 | cmd2)             |
+|               Data Layer                        |
+|  - Freezed models (Transaction, Category,       |
+|    Budget, Account)                             |
+|  - SQLite via sqflite (primary storage)         |
+|  - Hive (caching & settings)                    |
 +-------------------------------------------------+
-                        |
-                        v
+                  |
+                  v
 +-------------------------------------------------+
-|               Process Spawner                   |
-|  - Calls fork() and execvp() equivalent         |
-|  - Sets up pipe file descriptors                |
-+-------------------------------------------------+
-                        |
-                        v
-+-------------------------------------------------+
-|                Job Controller                   |
-|  - Tracks background and foreground jobs        |
-|  - Manages terminal ownership                   |
+|             Services Layer                      |
+|  - Export Service (CSV / PDF)                   |
+|  - Notification Service (budget alerts)         |
+|  - Google Pay auto-capture                      |
 +-------------------------------------------------+
 `,
     content: `
-### Educational Purpose
+### Why Walt
 
-\`rsh\` was written to understand the under-the-hood complexities of modern shells like Bash or Zsh. It avoids high-level abstractions where possible, calling directly into system libraries.
+Most finance apps require an internet connection or lock features behind subscriptions. \`Walt\` is fully offline-first — your financial data stays on your device, private and accessible anytime.
 
-### Supported Features
+### Features
 
-- **Command Execution**: Runs any binary found in system \`PATH\`.
-- **Pipelines**: Supports arbitrary pipe lengths (\`cat file | grep text | wc -l\`).
-- **File Redirection**: Supports stdin (\`<\`), stdout (\`>\`), and stderr (\`2>\`) redirecting.
-- **Job Control**: Run jobs in background (\`&\`), view active jobs with \`jobs\`, and bring them to foreground (\`fg\`).
+- **Offline-first** with SQLite + Hive for fast, reliable local storage.
+- **Beautiful charts** — monthly bar charts, category pie charts, and spending trend lines powered by \`fl_chart\`.
+- **Budget planning** with progress tracking and alert notifications.
+- **CSV & PDF export** with Android share sheet integration.
+- **Biometric app lock** for secure access.
+- **Dark mode support** with a clean, modern UI.
+- **Fully customizable categories** for organizing transactions.
+- **Google Pay auto-capture** for seamless transaction recording.
+
+### Tech Stack
+
+- **Flutter** + **Dart** for cross-platform UI
+- **sqflite** — local SQLite database
+- **hive_flutter** — fast caching for categories, settings, and pending GPay transactions
+- **flutter_riverpod** — declarative state management
+- **go_router** — declarative navigation
+- **fl_chart** — all charts (bar, pie, line)
+- **freezed + json_serializable** — immutable, serializable data models
 `
   }
 ];

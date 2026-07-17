@@ -19,19 +19,19 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Abderrahman Gouhmad | Systems & Rust Engineer",
+  title: "Abderrahman Gouhmad | Software & Rust Engineer",
   description: "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
-  keywords: ["Rust", "Systems Programming", "Linux", "Developer Tools", "Next.js", "CachyOS", "Arch Linux"],
+  keywords: ["Rust", "Systems Programming", "Linux", "Developer Tools", "Next.js", "CachyOS", "Arch Linux", "Niri"],
   authors: [{ name: "Abderrahman Gouhmad" }],
   openGraph: {
-    title: "Abderrahman Gouhmad | Systems & Rust Engineer",
+    title: "Abderrahman Gouhmad | Software & Rust Engineer",
     description: "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abderrahman Gouhmad | Systems & Rust Engineer",
+    title: "Abderrahman Gouhmad | Software & Rust Engineer",
     description: "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
   }
 }

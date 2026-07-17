@@ -1,0 +1,98 @@
+---
+title: "Building Walt: An Offline-First Finance Tracker with Flutter"
+description: "A deep dive into building a personal finance app with Flutter, covering offline-first architecture, Riverpod state management, and local data storage with SQLite and Hive."
+publishedAt: "July 17, 2026"
+readingTime: "6 min read"
+tags:
+  - Flutter
+  - Mobile Development
+  - Dart
+  - Architecture
+---
+
+Most finance apps force you into the cloud. Your data lives on someone else's server, behind a paywall, with features locked to premium tiers. I wanted something different — a finance tracker that works entirely offline, respects privacy, and gives you full control over your money data. That's how Walt was born.
+
+### Why Flutter?
+
+I've spent most of my career in Rust and TypeScript. Flutter was a deliberate step outside my comfort zone. The promise of a single codebase for Android (and potentially iOS and web) is compelling, but the real draw was Flutter's widget system and hot reload. When building a data-heavy UI with charts, lists, and forms, being able to see changes instantly is a massive productivity boost.
+
+The Dart language itself is surprisingly pleasant. It reads like a cleaner TypeScript with null safety baked in from the start. No `undefined is not a function` at runtime — type issues are caught at compile time.
+
+### The Architecture: Clean Layers
+
+Walt follows a layered architecture that keeps concerns separated:
+
+```
+Presentation (Features)
+        |
+    Providers (Riverpod)
+        |
+      Data Layer
+   /     |     \
+Models  SQLite  Hive
+        |
+    Services
+(Export, Notifications, GPay)
+```
+
+The **presentation layer** is pure Flutter widgets organized by feature — transactions, reports, budgets, categories, settings. Each feature gets its own directory under `lib/features/`.
+
+The **providers layer** uses Riverpod for state management. Every piece of app state — the transaction list, selected date range, budget progress — is a Riverpod provider. This makes state predictable and testable.
+
+The **data layer** handles persistence with two databases: SQLite as the primary store for transactions, categories, and budgets, and Hive for fast key-value caching of settings and pending Google Pay transactions.
+
+The **services layer** handles cross-cutting concerns: generating CSV/PDF exports, scheduling budget alert notifications, and processing Google Pay auto-captures.
+
+### Offline-First with SQLite + Hive
+
+The dual-database approach was the biggest architectural decision. SQLite is the source of truth — it handles complex queries like "show all expenses this month grouped by category" efficiently. But SQLite can be slow for simple key-value lookups.
+
+Hive fills that gap. App settings, cached category lists, and pending Google Pay transactions live in Hive. Reads are near-instant, and writes are fire-and-forget. The trick is keeping them in sync: when a transaction is saved to SQLite, any cached summary in Hive is invalidated and re-queried on next access.
+
+### State Management with Riverpod
+
+Coming from React, Riverpod felt familiar. Providers are like hooks — they declare reactive state that widgets consume. But Riverpod goes further with compile-time safety. You can't accidentally read a provider that doesn't exist.
+
+Here's a simplified example of how a transaction list provider works:
+
+```dart
+final filteredTransactions = FutureProvider.autoDispose<List<Transaction>>((ref) async {
+  final repo = ref.watch(transactionRepositoryProvider);
+  final dateRange = ref.watch(selectedDateRangeProvider);
+  final category = ref.watch(selectedCategoryFilterProvider);
+
+  return repo.getTransactions(
+    from: dateRange.start,
+    to: dateRange.end,
+    categoryId: category?.id,
+  );
+});
+```
+
+Any change to the date range or category filter automatically triggers a re-fetch. No manual subscriptions, no useEffect cleanup — just declarative reactive state.
+
+### Charts with fl_chart
+
+Visualizing spending patterns is the core value proposition of a finance app. fl_chart handles all the charting — monthly bar charts showing income vs expenses, pie charts breaking down spending by category, and line charts tracking spending trends over time.
+
+The hardest part wasn't rendering the charts — it was making them feel responsive. When you tap a bar in the monthly chart, it should smoothly animate and show a detailed breakdown. fl_chart handles the animation, but wiring up the gesture detection to the correct data point required careful provider orchestration.
+
+### Biometric Lock and Notifications
+
+Security matters for a finance app. Walt uses `local_auth` for biometric authentication — fingerprint or face unlock on launch. It's a simple gate: check biometrics on resume, lock the app if authentication fails.
+
+Budget alerts use `flutter_local_notifications`. When a transaction is saved that pushes a category over its budget limit, a notification fires immediately. The scheduling logic lives in a service that watches the transaction provider — another example of Riverpod's reactivity powering real features.
+
+### Export: CSV and PDF
+
+Users need to take their data out of the app. Walt generates styled PDF reports with monthly summaries and category breakdowns, plus raw CSV exports for spreadsheet users. The `pdf` package generates the documents, and `share_plus` opens the Android share sheet so users can send files to email, cloud storage, or messaging apps.
+
+The export service is fully offline — no servers, no APIs. The PDF is generated on-device in milliseconds.
+
+### Lessons Learned
+
+Building Walt taught me that mobile development is fundamentally different from web or systems programming. Memory constraints, battery life, and the need for smooth 60fps UIs force you to think differently about architecture.
+
+The biggest lesson: **local-first is not a compromise, it's a feature.** Users increasingly care about data ownership. An app that works without internet, stores nothing on remote servers, and gives users full export control is genuinely appealing.
+
+Flutter made this possible with a single codebase. Dart made it pleasant. Riverpod made it maintainable. And SQLite + Hive made it fast.

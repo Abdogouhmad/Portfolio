@@ -52,7 +52,7 @@ export function Hero() {
               Abderrahman Gouhmad
             </h1>
             <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted-foreground font-medium">
-              Systems Engineer specializing in{" "}
+              Software Engineer specializing in{" "}
               <span className="text-foreground font-semibold">Rust</span>,{" "}
               <span className="text-foreground font-semibold">Linux kernels</span>,{" "}
               <span className="text-foreground font-semibold">developer tooling</span>, and performance-critical systems.
@@ -61,7 +61,7 @@ export function Hero() {
 
           {/* Intro paragraph */}
           <motion.p variants={itemVariants} className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
-            I design and build lightweight, correct-by-construction CLI tools and low-level system integrations. I value software that is fast, deterministic, and built with craftsmanship.
+            I design and build lightweight, Web, Mobile Applications, and low-level system integrations. I value software that is fast, deterministic, and built with craftsmanship.
           </motion.p>
 
           {/* CTAs */}
@@ -119,7 +119,7 @@ export function Hero() {
             </a>
             <span className="h-4 w-px bg-border" />
             <a
-              href="../../../public/resume.pdf"
+              href="/resume.pdf"
               className="inline-flex items-center gap-1 hover:text-foreground transition-colors text-sm font-medium"
               title="Download Resume"
             >

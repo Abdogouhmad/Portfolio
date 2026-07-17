@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = getAllPosts()
-  const baseUrl = "https://gouhmad.com"
+  const baseUrl = "https://agouhmad.vercel.app"
 
   const projectUrls = projects.map((p) => ({
     url: `${baseUrl}/projects/${p.slug}`,
