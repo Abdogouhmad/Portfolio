@@ -1,0 +1,47 @@
+---
+title: "Speeding up Rust CI Builds by 4x using Smart Caching"
+description: "Tired of waiting for your Rust CI builds? Here is a practical guide to configuring GitHub Actions caches for large Cargo workspaces."
+publishedAt: "June 28, 2026"
+readingTime: "4 min read"
+tags:
+  - CI-CD
+  - Rust
+  - GitHub Actions
+---
+
+Rust compiles are notoriously slow. In developer environments, cargo's incremental compiler hides this, but in fresh CI environments, compiles can easily drag on for 10+ minutes. Here is how we reduced our build pipeline from 8 minutes to under 2 minutes.
+
+### The Problem: Incremental Builds in CI
+
+GitHub Actions spins up a fresh virtual machine on every run. By default, Cargo compiles all dependency crates from scratch.
+
+### The Solution: Smart Caching
+
+We can leverage `swatinem/rust-cache` or GitHub's default actions/cache. The trick is to cache both the `~/.cargo/registry` and the `target/` directory.
+
+Here is a snippet of a highly optimized workflow file:
+
+```yaml
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        
+      - name: Rust Cache
+        uses: swatinem/rust-cache@v2
+        with:
+          # Shared key across runs
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          
+      - name: Run Tests
+        run: cargo test --workspace --all-features
+```
+
+Using `rust-cache` ensures your builds only compile crates that have changed, saving massive developer time and CI runner minutes.
