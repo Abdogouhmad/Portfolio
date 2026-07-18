@@ -1,6 +1,9 @@
 export type ProjectStatus = "done" | "in_progress" | "not_started" | "blocked";
 
-export const projectStatusConfig: Record<ProjectStatus, { label: string; color: string }> = {
+export const projectStatusConfig: Record<
+  ProjectStatus,
+  { label: string; color: string }
+> = {
   done: { label: "Done", color: "bg-green-500" },
   in_progress: { label: "In Progress", color: "bg-orange-500" },
   not_started: { label: "Not Started", color: "bg-gray-400" },
@@ -38,8 +41,6 @@ export interface SkillCategory {
   skills: string[];
 }
 
-
-
 export const experiences: Experience[] = [
   {
     company: "Metave",
@@ -48,37 +49,74 @@ export const experiences: Experience[] = [
     description: [
       "Built SaaS application using Next.js, Node.js, and Express.js.",
       "Developed RESTful APIs and intergrating a serverless function with AWS for efficient data handling.",
-      "Created responsive user interfaces with Tailwind CSS."
+      "Created responsive user interfaces with Tailwind CSS.",
     ],
-    technologies: ["NextJs", "Linux Systems", "Terraform", "Docker", "REST APIs", "AWS", "TypeScript"]
+    technologies: [
+      "NextJs",
+      "Linux Systems",
+      "Terraform",
+      "Docker",
+      "REST APIs",
+      "AWS",
+      "TypeScript",
+    ],
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
     category: "Languages",
-    skills: ["Rust", "TypeScript", "JavaScript", "Python", "C", "Bash"]
+    skills: ["Rust", "TypeScript", "JavaScript", "Python", "C", "Bash"],
   },
   {
     category: "Web & Frontend",
-    skills: ["Next.js", "React", "HTML5", "Tailwind CSS", "Framer Motion", "Svelt", "SveltKit"]
+    skills: [
+      "Next.js",
+      "React",
+      "HTML5",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Svelt",
+      "SveltKit",
+    ],
   },
   {
     category: "Backend & Systems",
-    skills: ["Axum", "Actix-web", "REST APIs", "WebSockets", "Tokio", "ExpressJs"]
+    skills: [
+      "Axum",
+      "Actix-web",
+      "REST APIs",
+      "WebSockets",
+      "Tokio",
+      "ExpressJs",
+    ],
   },
   {
     category: "Tooling & Infrastructure",
-    skills: ["Cargo", "Git", "Docker", "CI/CD (GitHub Actions)", "Justfile", "Terraform"]
+    skills: [
+      "Cargo",
+      "Git",
+      "Docker",
+      "CI/CD (GitHub Actions)",
+      "Justfile",
+      "Terraform",
+    ],
   },
   {
     category: "Operating Systems",
-    skills: ["Linux", "Arch Linux", "CachyOS", "POSIX Systems", "Niri", "Hyprland"]
+    skills: [
+      "Linux",
+      "Arch Linux",
+      "CachyOS",
+      "POSIX Systems",
+      "Niri",
+      "Hyprland",
+    ],
   },
   {
     category: "Editors & Workflow",
-    skills: ["Helix", "VS Code", "Neovim", "Zed"]
-  }
+    skills: ["Helix", "VS Code", "Neovim", "Zed"],
+  },
 ];
 
 export const projects: Project[] = [
@@ -86,16 +124,20 @@ export const projects: Project[] = [
     id: "ltx",
     slug: "ltx",
     title: "ltx",
-    description: "An extremely fast LaTeX project manager written in Rust. It handles multi-pass compilation automatically.",
-    longDescription: "ltx treats LaTeX documents like modern software codebases, featuring incremental builds, automatic bibtex/biber resolution, and a tight write-compile-preview watch mode loop.",
+    description:
+      "An extremely fast LaTeX project manager written in Rust. It handles multi-pass compilation automatically.",
+    longDescription:
+      "ltx treats LaTeX documents like modern software codebases, featuring incremental builds, automatic bibtex/biber resolution, and a tight write-compile-preview watch mode loop.",
     image: "/images/projects/ltx-logo.png",
     technologies: ["Rust", "LaTeX", "Cargo", "POSIX", "CI/CD"],
     github: "https://github.com/Abdogouhmad/ltx",
     demo: "",
     featured: true,
     status: "in_progress",
-    challenges: "Parsing LaTeX source code files for active inputs, package imports, and bibliography references to construct a reliable, cyclic-free dependency graph. Ensuring compilation terminates correctly even when LaTeX throws errors or warnings.",
-    lessons: "Learned the details of LaTeX compiler engines (pdflatex, xelatex, lualatex) and auxiliary tool flows (biber, makeindex). Gained deeper experience in asynchronous process handling and file system monitoring in Rust.",
+    challenges:
+      "Parsing LaTeX source code files for active inputs, package imports, and bibliography references to construct a reliable, cyclic-free dependency graph. Ensuring compilation terminates correctly even when LaTeX throws errors or warnings.",
+    lessons:
+      "Learned the details of LaTeX compiler engines (pdflatex, xelatex, lualatex) and auxiliary tool flows (biber, makeindex). Gained deeper experience in asynchronous process handling and file system monitoring in Rust.",
     architecture: `
 +-------------------------------------------------+
 |                   ltx CLI                       |
@@ -139,22 +181,34 @@ Most LaTeX workflows are stitched together from shell scripts, \`latexmk\`, and 
 - 👀 **Watch mode** — rebuilds on save for a tight write–compile–preview loop.
 - 🧹 **Clean workspace** — auxiliary files are isolated to a build directory, never scattered next to your \`.tex\` sources.
 - 🔌 **Engine-agnostic** — works with \`pdflatex\`, \`xelatex\`, and \`lualatex\`.
-`
+`,
   },
   {
     id: "Walt",
     slug: "Walt",
     title: "Walt",
-    description: "A modern, offline-first personal finance tracker built with Flutter for Android.",
-    longDescription: "A clean, offline-first personal finance tracker built with Flutter for Android. Track expenses & income, manage budgets, view beautiful charts, export reports, and automatically capture Google Pay transactions.",
+    description:
+      "A modern, offline-first personal finance tracker built with Flutter for Android.",
+    longDescription:
+      "A clean, offline-first personal finance tracker built with Flutter for Android. Track expenses & income, manage budgets, view beautiful charts, export reports, and automatically capture Google Pay transactions.",
     image: "/images/projects/walt-logo.png",
-    technologies: ["Dart", "Flutter", "SQLite", "Hive", "Riverpod", "fl_chart", "Freezed"],
+    technologies: [
+      "Dart",
+      "Flutter",
+      "SQLite",
+      "Hive",
+      "Riverpod",
+      "fl_chart",
+      "Freezed",
+    ],
     github: "https://github.com/Abdogouhmad/walt",
     demo: "",
     featured: true,
     status: "done",
-    challenges: "Designing an offline-first architecture that keeps data consistent across SQLite and Hive caches while supporting real-time chart updates and background notification scheduling for budget alerts.",
-    lessons: "Gained deep experience with Flutter state management using Riverpod, learned to architect clean separation between data, domain, and UI layers, and understood the trade-offs between local databases for mobile apps.",
+    challenges:
+      "Designing an offline-first architecture that keeps data consistent across SQLite and Hive caches while supporting real-time chart updates and background notification scheduling for budget alerts.",
+    lessons:
+      "Gained deep experience with Flutter state management using Riverpod, learned to architect clean separation between data, domain, and UI layers, and understood the trade-offs between local databases for mobile apps.",
     architecture: `
 +-------------------------------------------------+
 |                   Walt App                      |
@@ -210,8 +264,6 @@ Most finance apps require an internet connection or lock features behind subscri
 - **go_router** — declarative navigation
 - **fl_chart** — all charts (bar, pie, line)
 - **freezed + json_serializable** — immutable, serializable data models
-`
-  }
+`,
+  },
 ];
-
-

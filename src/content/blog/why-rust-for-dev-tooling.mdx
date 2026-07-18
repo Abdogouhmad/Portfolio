@@ -13,13 +13,13 @@ Historically, developer tools were written in Perl, Bash, C, or Python. But rece
 
 ### 1. Speed and Low Overhead
 
-Developer tooling must get out of the way. If a build tool takes 3 seconds to spin up and check dependencies, it breaks the developer's flow. Rust compiles to native code with no garbage collector, meaning startup times are in the single-digit milliseconds. 
+Developer tooling must get out of the way. If a build tool takes 3 seconds to spin up and check dependencies, it breaks the developer's flow. Rust compiles to native code with no garbage collector, meaning startup times are in the single-digit milliseconds.
 
 In `ltx`, compiling document dependency trees is instant, allowing watch-mode rebuilds to trigger the millisecond you hit save.
 
 ### 2. Single Binary Distribution
 
-Python and Node.js command-line tools are notorious for environment breakages. A user updates their Node version or installs a conflicting python package, and their CLI crashes. 
+Python and Node.js command-line tools are notorious for environment breakages. A user updates their Node version or installs a conflicting python package, and their CLI crashes.
 
 Rust compiles down to a single statically-linked binary. You can ship it to Linux, macOS, or Windows, and it just runs without any runtime dependencies.
 

@@ -1,9 +1,12 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { ArrowRight, Mail, FileText } from "lucide-react"
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/shared/icons"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Mail, FileText } from "lucide-react";
+import {
+  GithubIcon as Github,
+  LinkedinIcon as Linkedin,
+} from "@/components/shared/icons";
 
 export function Hero() {
   const containerVariants = {
@@ -14,7 +17,7 @@ export function Hero() {
         staggerChildren: 0.15,
       },
     },
-  } as const
+  } as const;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -26,53 +29,72 @@ export function Hero() {
         ease: "easeOut",
       },
     },
-  } as const
+  } as const;
 
   return (
-    <section className="relative flex min-h-[85vh] items-center justify-center bg-dot-pattern py-20">
+    <section className="bg-dot-pattern relative flex min-h-[85vh] items-center justify-center py-20">
       {/* Subtle overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
+      <div className="via-background/50 to-background pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent" />
 
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center text-center space-y-8"
+          className="flex flex-col items-center space-y-8 text-center"
         >
           {/* Tech badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground font-mono">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          <motion.div
+            variants={itemVariants}
+            className="border-border bg-card text-muted-foreground inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs"
+          >
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
             <span>Available for new projects</span>
           </motion.div>
 
           {/* Heading */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground">
+            <h1 className="text-foreground text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
               Abderrahman Gouhmad
             </h1>
-            <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted-foreground font-medium">
+            <p className="text-muted-foreground mx-auto max-w-2xl text-lg font-medium sm:text-xl">
               Software Engineer specializing in{" "}
               <span className="text-foreground font-semibold">Rust</span>,{" "}
-              <span className="text-foreground font-semibold">Linux kernels</span>,{" "}
-              <span className="text-foreground font-semibold">developer tooling</span>, and performance-critical systems.
+              <span className="text-foreground font-semibold">
+                Linux kernels
+              </span>
+              ,{" "}
+              <span className="text-foreground font-semibold">
+                developer tooling
+              </span>
+              , and performance-critical systems.
             </p>
           </motion.div>
 
           {/* Intro paragraph */}
-          <motion.p variants={itemVariants} className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
-            I design and build lightweight, Web, Mobile Applications, and low-level system integrations. I value software that is fast, deterministic, and built with craftsmanship.
+          <motion.p
+            variants={itemVariants}
+            className="text-muted-foreground mx-auto max-w-xl leading-relaxed"
+          >
+            I design and build lightweight, Web, Mobile Applications, and
+            low-level system integrations. I value software that is fast,
+            deterministic, and built with craftsmanship.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center gap-4"
+          >
             <Link
               href="#projects"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-all shadow-sm cursor-pointer"
+              className="group bg-primary text-primary-foreground inline-flex cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium shadow-sm transition-all hover:opacity-90"
             >
               <span>View Projects</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -81,17 +103,22 @@ export function Hero() {
             <Link
               href="#contact"
               onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                e.preventDefault();
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center justify-center rounded-md border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-all cursor-pointer"
+              className="border-border bg-card text-foreground hover:bg-muted inline-flex cursor-pointer items-center justify-center rounded-md border px-5 py-2.5 text-sm font-medium transition-all"
             >
               Contact Me
             </Link>
           </motion.div>
 
           {/* Socials & Resume */}
-          <motion.div variants={itemVariants} className="flex items-center gap-5 pt-4 border-t border-border/60 w-full max-w-xs justify-center text-muted-foreground">
+          <motion.div
+            variants={itemVariants}
+            className="border-border/60 text-muted-foreground flex w-full max-w-xs items-center justify-center gap-5 border-t pt-4"
+          >
             <a
               href="https://github.com/Abdogouhmad"
               target="_blank"
@@ -117,10 +144,10 @@ export function Hero() {
             >
               <Mail className="h-5 w-5" />
             </a>
-            <span className="h-4 w-px bg-border" />
+            <span className="bg-border h-4 w-px" />
             <a
               href="/resume.pdf"
-              className="inline-flex items-center gap-1 hover:text-foreground transition-colors text-sm font-medium"
+              className="hover:text-foreground inline-flex items-center gap-1 text-sm font-medium transition-colors"
               title="Download Resume"
             >
               <FileText className="h-4 w-4" />
@@ -130,5 +157,5 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

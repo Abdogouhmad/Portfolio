@@ -1,25 +1,34 @@
-import { Mail, Heart } from "lucide-react"
-import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/shared/icons"
+import { Mail, Heart } from "lucide-react";
+import {
+  GithubIcon as Github,
+  LinkedinIcon as Linkedin,
+} from "@/components/shared/icons";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-background py-8 mt-auto">
+    <footer className="border-border bg-background mt-auto border-t py-8">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* Left: Copyright */}
-          <div className="text-sm text-muted-foreground text-center md:text-left">
-            <span>&copy; {currentYear} Abderrahman Gouhmad. All rights reserved.</span>
+          <div className="text-muted-foreground text-center text-sm md:text-left">
+            <span>
+              &copy; {currentYear} Abderrahman Gouhmad. All rights reserved.
+            </span>
           </div>
 
           {/* Center: Tech stack indicator */}
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-1 text-xs">
             <span>Built with</span>
-            <span className="font-mono text-foreground font-medium">Next.js</span>
+            <span className="text-foreground font-mono font-medium">
+              Next.js
+            </span>
             <span>&amp;</span>
-            <span className="font-mono text-foreground font-medium">Tailwind v4</span>
-            <Heart className="h-3 w-3 text-red-500 fill-red-500 animate-pulse ml-0.5" />
+            <span className="text-foreground font-mono font-medium">
+              Tailwind v4
+            </span>
+            <Heart className="ml-0.5 h-3 w-3 animate-pulse fill-red-500 text-red-500" />
           </div>
 
           {/* Right: Social Links */}
@@ -53,5 +62,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

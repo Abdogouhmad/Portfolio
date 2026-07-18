@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import { ExternalLink, ArrowRight } from "lucide-react"
-import { GithubIcon as Github } from "@/components/shared/icons"
-import { projects } from "@/data/portfolio"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { GithubIcon as Github } from "@/components/shared/icons";
+import { projects } from "@/data/portfolio";
 
 export function Projects() {
   const containerVariants = {
@@ -16,7 +16,7 @@ export function Projects() {
         staggerChildren: 0.15,
       },
     },
-  } as const
+  } as const;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -28,17 +28,22 @@ export function Projects() {
         ease: "easeOut",
       },
     },
-  } as const
+  } as const;
 
   return (
-    <section id="projects" className="py-20 bg-background border-t border-border/40">
+    <section
+      id="projects"
+      className="bg-background border-border/40 border-t py-20"
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-12">
+        <div className="mb-12 flex items-end justify-between">
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Featured Projects</h2>
-            <div className="h-1 w-12 bg-primary rounded" />
+            <h2 className="text-foreground text-2xl font-bold tracking-tight sm:text-3xl">
+              Featured Projects
+            </h2>
+            <div className="bg-primary h-1 w-12 rounded" />
           </div>
-          <span className="text-xs font-mono text-muted-foreground hidden sm:block">
+          <span className="text-muted-foreground hidden font-mono text-xs sm:block">
             Ctrl + K to search all projects
           </span>
         </div>
@@ -48,16 +53,16 @@ export function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 gap-8 md:grid-cols-2"
         >
           {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={cardVariants}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card hover:border-foreground/20 hover:shadow-lg transition-all duration-300"
+              className="group border-border bg-card hover:border-foreground/20 relative flex flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:shadow-lg"
             >
               {/* Image Banner */}
-              <div className="relative h-48 w-full bg-muted flex items-center justify-center p-6 border-b border-border select-none">
+              <div className="bg-muted border-border relative flex h-48 w-full items-center justify-center border-b p-6 select-none">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -67,19 +72,19 @@ export function Projects() {
                   priority={project.featured}
                 />
                 {project.featured && (
-                  <span className="absolute top-4 right-4 rounded-full border border-primary/20 bg-primary/5 px-2.5 py-0.5 text-[10px] font-mono text-primary font-semibold">
+                  <span className="border-primary/20 bg-primary/5 text-primary absolute top-4 right-4 rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-semibold">
                     Featured
                   </span>
                 )}
               </div>
 
               {/* Card Body */}
-              <div className="flex flex-1 flex-col p-6 space-y-4">
+              <div className="flex flex-1 flex-col space-y-4 p-6">
                 <div className="space-y-2">
-                  <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-foreground group-hover:text-primary text-lg font-semibold transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -89,23 +94,23 @@ export function Projects() {
                   {project.technologies.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded bg-muted px-2 py-0.5 text-[10px] font-mono text-foreground border border-border/40"
+                      className="bg-muted text-foreground border-border/40 rounded border px-2 py-0.5 font-mono text-[10px]"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="text-[10px] font-mono text-muted-foreground self-center">
+                    <span className="text-muted-foreground self-center font-mono text-[10px]">
                       +{project.technologies.length - 4} more
                     </span>
                   )}
                 </div>
 
                 {/* Bottom Actions */}
-                <div className="flex items-center justify-between pt-4 mt-auto border-t border-border/40">
+                <div className="border-border/40 mt-auto flex items-center justify-between border-t pt-4">
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                    className="text-foreground inline-flex items-center gap-1 text-sm font-medium transition-opacity hover:opacity-80"
                   >
                     <span>Read Case Study</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -140,5 +145,5 @@ export function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
