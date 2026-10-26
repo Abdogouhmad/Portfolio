@@ -19,11 +19,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abderrahman Gouhmad | Software & Rust Engineer",
+  metadataBase: new URL("https://agouhmad.vercel.app"),
+  title: "Abderrahman Gouhmad | Software Engineer — Rust, Flutter & Linux",
   description:
-    "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
+    "Portfolio of Abderrahman Gouhmad, a software engineer building Rust developer tools, Flutter Android apps, and Linux tooling.",
   keywords: [
     "Rust",
+    "Flutter",
+    "Dart",
+    "Android",
     "Systems Programming",
     "Linux",
     "Developer Tools",
@@ -34,17 +38,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Abderrahman Gouhmad" }],
   openGraph: {
-    title: "Abderrahman Gouhmad | Software & Rust Engineer",
+    title: "Abderrahman Gouhmad | Software Engineer — Rust, Flutter & Linux",
     description:
-      "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
+      "Portfolio of Abderrahman Gouhmad, a software engineer building Rust developer tools, Flutter Android apps, and Linux tooling.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abderrahman Gouhmad | Software & Rust Engineer",
+    title: "Abderrahman Gouhmad | Software Engineer — Rust, Flutter & Linux",
     description:
-      "Portfolio of Abderrahman Gouhmad, a software engineer specializing in Rust, Linux, systems programming, and performance-oriented developer tools.",
+      "Portfolio of Abderrahman Gouhmad, a software engineer building Rust developer tools, Flutter Android apps, and Linux tooling.",
   },
 };
 

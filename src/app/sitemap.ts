@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const projectUrls = projects.map((p) => ({
     url: `${baseUrl}/projects/${p.slug}`,
     lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: p.category === "mobile" ? 0.85 : 0.8,
   }));
 
   const blogUrls = blogPosts.map((b) => ({

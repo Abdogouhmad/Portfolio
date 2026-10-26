@@ -1,30 +1,44 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { ExternalLink, ArrowRight } from "lucide-react";
-import { GithubIcon as Github } from "@/components/shared/icons";
-import { projects } from "@/data/portfolio";
+import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { projects, type ProjectCategory } from "@/data/portfolio";
+import { ProjectCard } from "@/components/projects/project-card";
+import { AppCard } from "@/components/projects/app-card";
+import { cn } from "@/lib/utils";
+
+type ProjectFilter = "all" | ProjectCategory;
+
+const filters: Array<{ id: ProjectFilter; label: string }> = [
+  { id: "all", label: "All" },
+  { id: "tooling", label: "Rust & Tooling" },
+  { id: "mobile", label: "Mobile" },
+];
 
 export function Projects() {
+  const [filter, setFilter] = useState<ProjectFilter>("all");
+  const shouldReduceMotion = useReducedMotion();
+
+  const tooling = projects.filter((project) => project.category === "tooling");
+  const mobile = projects.filter((project) => project.category === "mobile");
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.12,
       },
     },
   } as const;
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.45,
         ease: "easeOut",
       },
     },
@@ -36,112 +50,104 @@ export function Projects() {
       className="bg-background border-border/40 border-t py-20"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex items-end justify-between">
+        <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
             <h2 className="text-foreground text-2xl font-bold tracking-tight sm:text-3xl">
               Featured Projects
             </h2>
             <div className="bg-primary h-1 w-12 rounded" />
+            <p className="text-muted-foreground max-w-xl pt-1 text-sm leading-relaxed">
+              Mobile apps and developer tooling — all built and shipped from
+              source.
+            </p>
           </div>
-          <span className="text-muted-foreground hidden font-mono text-xs sm:block">
-            Ctrl + K to search all projects
-          </span>
+
+          <div className="flex flex-col items-start gap-2 sm:items-end">
+            <div
+              role="group"
+              aria-label="Filter projects by category"
+              className="border-border bg-muted/50 inline-flex rounded-lg border p-1"
+            >
+              {filters.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setFilter(item.id)}
+                  aria-pressed={filter === item.id}
+                  className={cn(
+                    "cursor-pointer rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
+                    filter === item.id
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <span className="text-muted-foreground hidden font-mono text-[10px] sm:block">
+              Ctrl + K to search all projects
+            </span>
+          </div>
         </div>
 
         <motion.div
+          key={filter}
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView={shouldReduceMotion ? undefined : "visible"}
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2"
+          className="space-y-12"
         >
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              className="group border-border bg-card hover:border-foreground/20 relative flex flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:shadow-lg"
-            >
-              {/* Image Banner */}
-              <div className="bg-muted border-border relative flex h-48 w-full items-center justify-center border-b p-6 select-none">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={96}
-                  height={96}
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
-                  priority={project.featured}
-                />
-                {project.featured && (
-                  <span className="border-primary/20 bg-primary/5 text-primary absolute top-4 right-4 rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-semibold">
-                    Featured
-                  </span>
-                )}
+          {(filter === "all" || filter === "tooling") && (
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <h3 className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
+                  Rust &amp; Tooling
+                </h3>
+                <span className="bg-border/60 h-px flex-1" />
+                <span className="text-muted-foreground font-mono text-[10px]">
+                  {tooling.length}
+                </span>
               </div>
-
-              {/* Card Body */}
-              <div className="flex flex-1 flex-col space-y-4 p-6">
-                <div className="space-y-2">
-                  <h3 className="text-foreground group-hover:text-primary text-lg font-semibold transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="bg-muted text-foreground border-border/40 rounded border px-2 py-0.5 font-mono text-[10px]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="text-muted-foreground self-center font-mono text-[10px]">
-                      +{project.technologies.length - 4} more
-                    </span>
-                  )}
-                </div>
-
-                {/* Bottom Actions */}
-                <div className="border-border/40 mt-auto flex items-center justify-between border-t pt-4">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="text-foreground inline-flex items-center gap-1 text-sm font-medium transition-opacity hover:opacity-80"
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {tooling.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    variants={shouldReduceMotion ? undefined : cardVariants}
+                    className="h-full"
                   >
-                    <span>Read Case Study</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      title="View GitHub Repository"
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
-                        title="View Live Demo"
-                      >
-                        <ExternalLink className="h-5 w-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          )}
+
+          {(filter === "all" || filter === "mobile") && (
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <h3 className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
+                  Mobile Apps
+                </h3>
+                <span className="bg-border/60 h-px flex-1" />
+                <span className="text-muted-foreground font-mono text-[10px]">
+                  {mobile.length}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {mobile.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    variants={shouldReduceMotion ? undefined : cardVariants}
+                    className="h-full"
+                  >
+                    <AppCard project={project} />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

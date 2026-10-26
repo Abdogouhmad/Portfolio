@@ -10,6 +10,7 @@ import {
   Sparkles,
   Laptop,
   Search,
+  Smartphone,
 } from "lucide-react";
 import { projects } from "@/data/portfolio";
 
@@ -128,16 +129,24 @@ export function CommandPalette({ blogPosts }: CommandPaletteProps) {
               {projects.map((project) => (
                 <Command.Item
                   key={project.id}
+                  value={`${project.title} ${project.tags?.join(" ") ?? ""} ${project.description}`}
                   onSelect={() =>
                     runCommand(() => router.push(`/projects/${project.slug}`))
                   }
                   className="text-foreground aria-selected:bg-muted aria-selected:text-foreground flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm transition-colors outline-none"
                 >
-                  <Terminal className="text-muted-foreground h-4 w-4" />
+                  {project.category === "mobile" ? (
+                    <Smartphone className="text-muted-foreground h-4 w-4" />
+                  ) : (
+                    <Terminal className="text-muted-foreground h-4 w-4" />
+                  )}
                   <span className="truncate">
                     {project.title}{" "}
                     <span className="text-muted-foreground text-xs font-normal">
-                      — {project.description.slice(0, 45)}...
+                      — {(project.tagline ?? project.description).slice(0, 45)}
+                      {(project.tagline ?? project.description).length > 45
+                        ? "..."
+                        : ""}
                     </span>
                   </span>
                 </Command.Item>
