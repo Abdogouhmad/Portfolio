@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Mail, FileText } from "lucide-react";
 import {
@@ -9,6 +9,8 @@ import {
 } from "@/components/shared/icons";
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,7 +41,7 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
-          initial="hidden"
+          initial={shouldReduceMotion ? false : "hidden"}
           animate="visible"
           className="flex flex-col items-center space-y-8 text-center"
         >
@@ -60,12 +62,9 @@ export function Hero() {
             <p className="text-muted-foreground mx-auto max-w-2xl text-lg font-medium sm:text-xl">
               Software Engineer specializing in{" "}
               <span className="text-foreground font-semibold">Rust</span>,{" "}
+              <span className="text-foreground font-semibold">Flutter</span>,{" "}
               <span className="text-foreground font-semibold">
-                Linux kernels
-              </span>
-              ,{" "}
-              <span className="text-foreground font-semibold">
-                developer tooling
+                Linux tooling
               </span>
               , and performance-critical systems.
             </p>
@@ -76,9 +75,9 @@ export function Hero() {
             variants={itemVariants}
             className="text-muted-foreground mx-auto max-w-xl leading-relaxed"
           >
-            I design and build lightweight, Web, Mobile Applications, and
-            low-level system integrations. I value software that is fast,
-            deterministic, and built with craftsmanship.
+            I design and build lightweight web and mobile applications,
+            developer tools, and low-level system integrations. I value software
+            that is fast, deterministic, and built with craftsmanship.
           </motion.p>
 
           {/* CTAs */}
